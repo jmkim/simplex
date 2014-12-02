@@ -1,24 +1,41 @@
 # Simplex
 
-Web-based Simple File Explorer
+Try **[Simplex Demo](http://kdzlvaids.github.io/simplex/demo/)**
 
-Based on [Encode Explorer](http://encode-explorer.siineiolekala.net)
+### Works well on [PHP](http://php.net/) with [any](http://www.apache.org/) [web](http://nginx.org/) [servers](http://www.lighttpd.net/)
 
-## Table of contents
-
- - [Requirements](#requirements)
- - [Installation](#installation)
+ - [How to install](#how_to_install)
+ - [Documentation](#documentation)
+ - [Credits](#credits)
  - [License](#license)
 
-## Requirements
+### How to install
 
- - [apache](http://www.apache.org/) / [nginx](http://nginx.org/) / etc..
- - [php](http://php.net/)
+Just put `index.php` in your sharing folder.
+```bash
+$ cd directory_you_wanna_share/
 
-## Installation
+# clone Simplex git to your sharing directory
+$ git clone git@github.com:kdzlvaids/Simplex.git
 
+# move index.php to the parent directory
+$ cd Simplex/
+$ mv index.php ../
+$ cd ../
 
-## License
+# remove Simplex git from your sharing directory
+$ rm -rf .htaccess
+$ rm -rf Simplex
+```
+
+### [Documentation](http://kdzlvaids.github.io/simplex/)
+
+### Credits
+
+ - Based off [Encode Explorer](https://github.com/marekrei/encode-explorer) by [Marek Rei](http://www.marekrei.com).
+ - [Faenza Icons](http://tiheum.deviantart.com/art/Faenza-Icons-173323228) are used in Simplex.
+
+### License
 
 ```
 	This is free software and it's distributed under GNU/GPL Licence.
