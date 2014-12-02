@@ -2082,7 +2082,7 @@ if(isset($ERROR) && strlen($ERROR) > 0)
 <div class="row">
 <div class="alert alert-danger text-center" role="alert">
 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-<span class="sr-only">Error: </span><? print $ERROR;?>
+<span class="sr-only">Error: </span><?php print $ERROR;?>
 </div>
 </div>
 </div><!-- END: Error alert area -->
