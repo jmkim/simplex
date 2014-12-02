@@ -1,6 +1,6 @@
 # Simplex
 
-Try **[Simplex Demo](http://kdzlvaids.github.io/simplex/demo/)**
+Try **[Simplex Demo](https://simplex-demo-kdzlvaids.c9.io/)**
 
 ### Works well on [PHP](http://php.net/) with [any](http://www.apache.org/) [web](http://nginx.org/) [servers](http://www.lighttpd.net/)
 
@@ -33,7 +33,7 @@ $ rm -rf Simplex
 
 `(Not yet implemented)`
 
-### [Demo Site](http://kdzlvaids.github.io/simplex/demo/)
+### [Demo Site](https://simplex-demo-kdzlvaids.c9.io/)
 
 ### Credits
 
