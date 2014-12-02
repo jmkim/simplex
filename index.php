@@ -6,7 +6,7 @@
  *   Jongmin Kim
  *   kdzlvaids@gmail.com
  *
- *   https://github.com/kdzlvaids/simplex
+ *   https://github.com/kdzlvaids/Simplex
  *
  *   Based on Encode Explorer by Marek Rei
  *   http://encode-explorer.siineiolekala.net
@@ -1855,39 +1855,38 @@ class Simplex
 	public function printLoginBox()
 	{
 		?>
-
-		<?php
-		if(GateKeeper::isLoginRequired())
+<div class="row text-muted">
+<div class="col-xs-12 col-md-9 pull-right">
+<form class="navbar-form navbar-right" enctype="multipart/form-data" method="post">
+<?php
+		$require_username = false;
+		foreach(Simplex::getConfig("confUsers") as $user){
+			if($user[0] != null && strlen($user[0]) > 0){
+				$require_username = true;
+				break;
+			}
+		}
+		if($require_username)
 		{
 		?>
-<form class="navbar-form navbar-right" action="<?php print $this->makeLink(false, null, null, null, ""); ?>" enctype="multipart/form-data" method="post">
-		<?php
-			$require_username = false;
-			foreach(Simplex::getConfig("confUsers") as $user){
-				if($user[0] != null && strlen($user[0]) > 0){
-					$require_username = true;
-					break;
-				}
-			}
-			if($require_username)
-			{
-			?>
 <div class="form-group">
 <label class="sr-only" for="inputUsername"><?php print $this->getString("langInputUsername");?></label>
 <input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="<?php print $this->getString("langInputUsername");?>" required>
 </div>
-			<?php
-			}
-		?>
+<?php
+		}
+	?>
 <div class="form-group">
 <label class="sr-only" for="inputPassword"><?php print $this->getString("langInputPassword");?></label>
 <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="<?php print $this->getString("langInputPassword");?>" required>
 </div>
 <button class="btn btn-default hidden-xs" type="submit"><?php print $this->getString("langBtnSignin");?></button>
 <button class="btn btn-default btn-block visible-xs" type="submit"><?php print $this->getString("langBtnSignin");?></button>
+<p class="help-block text-right"><?php print $this->getString("langInfoSignin");?></p>
 </form><!-- sign-in-form -->
-		<?php
-		}
+</div>
+</div>
+<?php
 	}
 
 	//
@@ -1898,7 +1897,6 @@ class Simplex
 		global $ERROR;
 		global $LOADTIME;
 ?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $this->getConfig('confLang');?>" lang="<?php print $this->getConfig('confLang');?>">
 <head>
@@ -2035,7 +2033,6 @@ input[type="color"]:focus,
 <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-
 <body class="font-sans-serif">
 <?php
 if(Simplex::getConfig('confShowHeader') == true)
@@ -2045,35 +2042,35 @@ if(Simplex::getConfig('confShowHeader') == true)
 <div class="container">
 <div class="row">
 <h3 class="no-strong text-center">
-<a href="<?php print $this->makeLink(false, null, null, null, "");?>">
-<span><?php if(Simplex::getConfig('confTitle') != null) print Simplex::getConfig('confTitle');?></span>
-</a>
-	<?php
+<a href="<?php print $this->makeLink(false, null, null, null, "");?>"><span><?php if(Simplex::getConfig('confTitle') != null) print Simplex::getConfig('confTitle');?></span></a>
+<?php
 	if(Simplex::getConfig("confTitleSub") != null && is_array(Simplex::getConfig("confTitleSub")) && count(Simplex::getConfig("confTitleSub")) > 0)
 	{
 		$confTitleSub = Simplex::getConfig("confTitleSub");
 	?>
 <span><small class="no-strong"><?php print $confTitleSub[array_rand($confTitleSub)];?></small></span>
-	<?php
+<?php
 	}
 	?>
 </h3>
 </div>
 </div>
 </header>
-	<?php
+
+<?php
 }
 ?>
 <a name="simplex"></a>
+
 <?php
 if(Simplex::getConfig('confShowHeader') == true)
 {
 	?>
 <hr>
-	<?php
+
+<?php
 }
 ?>
-
 <?php
 //
 // Print the error (if there is something to print)
@@ -2081,27 +2078,29 @@ if(Simplex::getConfig('confShowHeader') == true)
 if(isset($ERROR) && strlen($ERROR) > 0)
 {
 	?>
+<div class="container">
 <div class="row">
 <div class="alert alert-danger text-center" role="alert">
 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 <span class="sr-only">Error: </span><? print $ERROR;?>
 </div>
 </div>
-	<?php
+</div><!-- END: Error alert area -->
+
+<?php
 }
 ?>
-
 <section class="container">
 <?php
 // Checking if the user is allowed to access the page, otherwise showing the login box
-if(!GateKeeper::isAccessAllowed())
+if(!GateKeeper::isAccessAllowed() && GateKeeper::isLoginRequired())
 {
 	$this->printLoginBox();
 }
 else
 {
 	?>
-	<?php
+<?php
 	if(Simplex::getConfig('confShowBreadcrumb') == true)
 	{
 		?>
@@ -2109,23 +2108,21 @@ else
 <div class="col-xs-12">
 <p>
 <a href="?dir=/#simplex"><?php print $this->getString("langInfoRoot");?></a> /
-		<?php
+<?php
 		for($i = 0; $i < count($this->location->path); $i++)
 		{
 			?>
-<a href="<?php print $this->makeLink(false, null, null, null, $this->location->getDir(false, true, false, count($this->location->path) - $i - 1));?>#simplex">
-<?php print $this->location->getPathLink($i, true);?>
-	</a> /
-			<?php
+<a href="<?php print $this->makeLink(false, null, null, null, $this->location->getDir(false, true, false, count($this->location->path) - $i - 1));?>#simplex"><?php print $this->location->getPathLink($i, true);?></a> /
+<?php
 		}
 		?>
 </p>
 </div>
 </div>
-		<?php
+
+<?php
 	}
 	?>
-
 <table class="table table-hover">
 <thead class="small">
 <tr>
@@ -2133,12 +2130,12 @@ else
 <th class="no-strong text-left"><?php print $this->makeArrow("name");?></th>
 <th class="no-strong text-center hidden-xs" style="width: 156px;"><?php print $this->makeArrow("mod");?></th>
 <th class="no-strong text-center" style="width: 78px;"><?php print $this->makeArrow("size");?></th>
-	<?php
+<?php
 	if(GateKeeper::isDeleteAllowed())
 	{
 		?>
 <th class="no-strong text-center" style="width: 39px;"><?php print Simplex::getString("langFileDelete");?></th>
-		<?php
+<?php
 	}
 	?>
 </tr>
@@ -2150,16 +2147,16 @@ else
 <td class="text-left"><a href="<?php print $this->makeLink(false, null, null, null, $this->location->getDir(false, true, false, 1));?>#simplex">..</a></td>
 <td class="hidden-xs"></td>
 <td></td>
-	<?php
+<?php
 	if(GateKeeper::isDeleteAllowed())
 	{
 		?>
 <td></td>
-		<?php
+<?php
 	}
 	?>
 </tr>
-	<?php
+<?php
 	//
 	// Ready to display folders and files.
 	//
@@ -2173,21 +2170,22 @@ else
 		foreach ($this->dirs as $dir)
 		{
 			?>
+
 <tr>
 <td><img alt="dir" src="?img=folder"></td>
 <td class="text-left"><a href="<?php print $this->makeLink(false, null, null, null, $this->location->getDir(false, true, false, 0).$dir->getNameEncoded());?>/#simplex"><?php print $dir->getNameHtml();?></a></td>
 <td class="hidden-xs"></td>
 <td></td>
-			<?php
+<?php
 			if(GateKeeper::isDeleteAllowed())
 			{
 				?>
 <td class="text-center delete"><a data-name="<?php print htmlentities($dir->getName());?>" href="<?php print $this->makeLink(false, null, null, $this->location->getDir(false, true, false, 0).$dir->getNameEncoded(), $this->location->getDir(false, true, false, 0));?>"><img src="?img=del" alt="<?php print $this->getString("langInfoDelete");?>"></a></td>
-				<?php
+<?php
 			}
 			?>
 </tr>
-			<?php
+<?php
 			$row =! $row;
 		}
 	}
@@ -2201,28 +2199,27 @@ else
 		foreach ($this->files as $file)
 		{
 			?>
+
 <tr>
 <td><img alt="<?php print $file->getType();?>" src="<?php print $this->makeIcon($file->getType());?>"></td>
-<td class="text-left"><a href="<?php print $this->location->getDir(false, true, false, 0).$file->getNameEncoded();?>"
-			<?php
+<td class="text-left"><a href="<?php print $this->location->getDir(false, true, false, 0).$file->getNameEncoded();?>"<?php
 			if(Simplex::getConfig('confNewWindow') == true)
 				print " target=\"_blank\"";
 			print ">";
 			print $file->getNameHtml();
-			?>
-</a></td>
+			?></a></td>
 <td class="hidden-xs"><?php print $this->formatModTime($file->getModTime());?></td>
 <td><?php print $this->formatSize($file->getSize());?></td>
-			<?php
+<?php
 			if(GateKeeper::isDeleteAllowed()){
 				?>
 <td class="delete"><a data-name="<?php print htmlentities($file->getName());?>" href="<?php print $this->makeLink(false, null, null, $this->location->getDir(false, true, false, 0).$file->getNameEncoded(), $this->location->getDir(false, true, false, 0));?>">
 <img src="?img=del" alt="<?php print $this->getString("langInfoDelete");?>"></a></td>
-				<?php
+<?php
 			}
 			?>
 </tr>
-			<?php
+<?php
 			$row =! $row;
 		}
 	}
@@ -2234,44 +2231,23 @@ else
 	?>
 </tbody>
 </table>
-	<?php
+<?php
 }
 ?>
 </section>
-
 <footer class="footer-wrapper">
 <div class="container">
-
 <?php
 if(GateKeeper::isAccessAllowed() && GateKeeper::showLoginBox())
 {
-	?>
-<div class="row text-muted">
-<div class="col-xs-12 col-md-9 pull-right">
-<form class="navbar-form navbar-right" enctype="multipart/form-data" method="post">
-<div class="form-group">
-<label class="sr-only" for="inputUsername"><?php print $this->getString("langInputUsername");?></label>
-<input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="<?php print $this->getString("langInputUsername");?>" required>
-</div>
-<div class="form-group">
-<label class="sr-only" for="inputPassword"><?php print $this->getString("langInputPassword");?></label>
-<input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="<?php print $this->getString("langInputPassword");?>" required>
-</div>
-<button class="btn btn-default hidden-xs" type="submit"><?php print $this->getString("langBtnSignin");?></button>
-<button class="btn btn-default btn-block visible-xs" type="submit"><?php print $this->getString("langBtnSignin");?></button>
-<p class="help-block text-right"><?php print $this->getString("langInfoSignin");?></p>
-</form><!-- sign-in-form -->
-</div>
-</div>
-	<?php
+	$this->printLoginBox();
 }
 ?>
-
+<div class="row text-muted">
 <?php
 if(GateKeeper::isAccessAllowed() && $this->location->uploadAllowed() && (GateKeeper::isUploadAllowed() || GateKeeper::isNewdirAllowed()))
 {
 	?>
-<div class="row text-muted">
 <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 pull-right">
 <form class="navbar-form navbar-right" enctype="multipart/form-data" method="post">
 <div class="form-group">
@@ -2299,65 +2275,69 @@ if(GateKeeper::isAccessAllowed() && $this->location->uploadAllowed() && (GateKee
 <button class="btn btn-default btn-block visible-xs" type="submit"><?php print $this->getString("langBtnUpload");?></button>
 </form><!-- upload-file-form -->
 </div>
-	<?php
+
+<?php
 }
 ?>
-
-<div class="col-xs-12 col-sm-2 pull-left" style="margin:8px 0 8px 0;">
 <?php
 if(GateKeeper::isUserLoggedIn()){
 	?>
+<div class="col-xs-12 col-sm-2 pull-left" style="margin:8px 0 8px 0;">
 <a href="<?php print $this->makeLink(true, null, null, null, "");?>">
 <button class="btn btn-default hidden-xs" type="button"><?php print $this->getString("langBtnSignout");?></button>
 <button class="btn btn-default btn-block visible-xs" type="button"><?php print $this->getString("langBtnSignout");?></button>
 </a>
-	<?php
+</div>
+<?php
 }
 ?>
-</div>
 </div>
 </div><!-- file-manager-tools-container -->
 
 <div class="footer-bottom-wrapper">
 <hr>
 <div class="container visible-xs">
-<div class="row">
-<div class="col-xs-12 text-center">
-<p class="text-muted">
 <?php
 if($this->getConfig("confShowLoadTime") == true)
 {
-	printf($this->getString("langInfoLoadTime"), (microtime(TRUE) - $LOADTIME)*1000);
-}
 ?>
+<div class="row">
+<div class="col-xs-12 text-center">
+<p class="text-muted">
+<?php printf($this->getString("langInfoLoadTime"), (microtime(TRUE) - $LOADTIME)*1000);?>
 </p>
 </div>
 </div><!-- row -->
 
+<?php
+}
+?>
 <div class="row">
 <div class="col-xs-12 text-center">
-<h4 class="no-strong"><?php if(Simplex::getConfig('confTitle') != null) print Simplex::getConfig('confTitle');?> with <a href="https://github.com/kdzlvaids/simplex">Simplex</a></h4>
+<h4 class="no-strong"><?php if(Simplex::getConfig('confTitle') != null) print Simplex::getConfig('confTitle');?> with <a href="https://github.com/kdzlvaids/Simplex">Simplex</a></h4>
 </div>
 </div><!-- row -->
 </div><!-- container -->
 
 <div class="container hidden-xs">
-<div class="row">
-<div class="col-sm-12 text-left">
-<p class="text-muted">
 <?php
 if($this->getConfig("confShowLoadTime") == true)
 {
-	printf($this->getString("langInfoLoadTime"), (microtime(TRUE) - $LOADTIME)*1000);
-}
 ?>
+<div class="row">
+<div class="col-sm-12 text-left">
+<p class="text-muted">
+<?php printf($this->getString("langInfoLoadTime"), (microtime(TRUE) - $LOADTIME)*1000);?>
 </p>
 </div>
 </div><!-- row -->
 
+<?php
+}
+?>
 <div class="row">
 <div class="col-sm-8 text-left">
-<h4 class="no-strong"><?php if(Simplex::getConfig('confTitle') != null) print Simplex::getConfig('confTitle');?> with <a href="https://github.com/kdzlvaids/simplex">Simplex</a></h4>
+<h4 class="no-strong"><?php if(Simplex::getConfig('confTitle') != null) print Simplex::getConfig('confTitle');?> with <a href="https://github.com/kdzlvaids/Simplex">Simplex</a></h4>
 </div>
 
 <div class="col-sm-1 col-sm-offset-3 pull-right">
@@ -2382,7 +2362,7 @@ $(document).on('change', '.btn-file :file', function() {
       label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
   input.trigger('fileselect', [numFiles, label]);
 });
-
+	
 $(document).ready( function() {
     $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
 
@@ -2394,21 +2374,19 @@ $(document).ready( function() {
         } else {
             if( log ) alert(log);
         }
-
     });
 });
-</script>
-
 <?php
 if(($this->getConfig('confLogFile') != null && strlen($this->getConfig('confLogFile')) > 0)
 	|| (GateKeeper::isDeleteAllowed()))
 {
 ?>
-<script>
+
 $(document).ready(function() {
 <?php
 	if(GateKeeper::isDeleteAllowed()){
 ?>
+
 	$('td.delete a').click(function(){
 		var answer = confirm('Are you sure you want to delete : \'' + $(this).attr("data-name") + "\' ?");
 		return answer;
@@ -2418,6 +2396,7 @@ $(document).ready(function() {
 	if($this->logging == true)
 	{
 ?>
+
 		function logFileClick(path)
 		{
 			 $.ajax({
@@ -2437,13 +2416,12 @@ $(document).ready(function() {
 	}
 ?>
 	});
-</script>
 <?php
 }
 ?>
+</script>
 </body>
 </html>
-
 <?php
 	}
 }
