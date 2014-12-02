@@ -4,7 +4,7 @@ Try **[Simplex Demo](http://kdzlvaids.github.io/simplex/demo/)**
 
 ### Works well on [PHP](http://php.net/) with [any](http://www.apache.org/) [web](http://nginx.org/) [servers](http://www.lighttpd.net/)
 
- - [How to install](#how_to_install)
+ - [How to install](#how-to-install)
  - [Documentation](#documentation)
  - [Credits](#credits)
  - [License](#license)
