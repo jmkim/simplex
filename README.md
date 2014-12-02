@@ -30,6 +30,8 @@ $ rm -rf Simplex
 
 ### [Documentation](http://kdzlvaids.github.io/simplex/)
 
+`(Not yet implemented)`
+
 ### Credits
 
  - Based off [Encode Explorer](https://github.com/marekrei/encode-explorer) by [Marek Rei](http://www.marekrei.com).
