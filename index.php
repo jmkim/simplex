@@ -127,7 +127,7 @@ $CONFIG['confHiddenDir'] = array();
 // Filenames that will be hidden from the list.
 // Default: $CONFIG['confHiddenFile'] = array(".ftpquota", "index.php", "index.php~", ".htaccess", ".htpasswd");
 //
-$CONFIG['confHiddenFile'] = array(".ftpquota", "index.php", "index.php~", ".htaccess", ".htpasswd");
+$CONFIG['confHiddenFile'] = array(".ftpquota", "index.php", "index.php~", ".index.php.swp", ".htaccess", ".htpasswd");
 
 //
 // Whether authentication is required to see the contents of the page.
@@ -141,10 +141,13 @@ $CONFIG['confLogin'] = false;
 
 //
 // Usernames and passwords for restricting access to the page.
-// The format is: array(username, password, status)
-// Status can be either "user" or "admin". User can read the page, admin can upload and delete.
-// For example: $CONFIG['confUsers'] = array(array("username1", "password1", "user"), array("username2", "password2", "admin"));
-// You can also keep confUsers=false and specify an admin.
+// The format is: array(username, password, level)
+// Level can be one of "user", "staff", and "admin".
+// User("user") can read the page.
+// Contributor("staff") can upload
+// Administrator("admin") can delete (only when confEnableDelete=true).
+// For example: $CONFIG['confUsers'] = array(array("username1", "password1", "user"), array("username2", "password2", "staff"), array("username2", "password2", "admin"));
+// You can also keep confLogin=false and specify "staff" and "admin".
 // That way everyone can see the page but username and password are needed for uploading.
 // For example: $CONFIG['confUsers'] = array(array("username", "password", "admin"));
 // Default: $CONFIG['confUsers'] = array();
@@ -1061,13 +1064,13 @@ class GateKeeper
 	}
 
 	public static function isUploadAllowed(){
-		if(Simplex::getConfig("confEnableUpload") == true && GateKeeper::isUserLoggedIn() == true && GateKeeper::getUserStatus() == "admin")
+		if(Simplex::getConfig("confEnableUpload") == true && GateKeeper::isUserLoggedIn() == true && GateKeeper::getUserStatus() == "staff" || GateKeeper::getUserStatus() == "admin")
 			return true;
 		return false;
 	}
 
 	public static function isNewdirAllowed(){
-		if(Simplex::getConfig("confEnableMkDir") == true && GateKeeper::isUserLoggedIn() == true && GateKeeper::getUserStatus() == "admin")
+		if(Simplex::getConfig("confEnableMkDir") == true && GateKeeper::isUserLoggedIn() == true && GateKeeper::getUserStatus() == "staff" || GateKeeper::getUserStatus() == "admin")
 			return true;
 		return false;
 	}
@@ -1965,15 +1968,18 @@ a:focus {
 table {
 	table-layout:fixed;
 }
-td a:link {
-	display: block;
-}
-td {
-	color: #61666c;
-	word-wrap:break-word;
-}
 tr {
 	height: 39px;
+	text-align: center;
+}
+th {
+	white-space: nowrap;
+}
+td {
+	word-wrap: break-word;
+}
+td a:link {
+	display: block;
 }
 .btn {
 	font-weight: 300;
@@ -2095,45 +2101,44 @@ if(!GateKeeper::isAccessAllowed())
 else
 {
 	?>
-<?php
-if(Simplex::getConfig('confShowBreadcrumb') == true)
-{
-	?>
+	<?php
+	if(Simplex::getConfig('confShowBreadcrumb') == true)
+	{
+		?>
 <div class="row">
 <div class="col-xs-12">
 <p>
 <a href="?dir=/#simplex"><?php print $this->getString("langInfoRoot");?></a> /
-	<?php
-	for($i = 0; $i < count($this->location->path); $i++)
-	{
-	?>
+		<?php
+		for($i = 0; $i < count($this->location->path); $i++)
+		{
+			?>
 <a href="<?php print $this->makeLink(false, null, null, null, $this->location->getDir(false, true, false, count($this->location->path) - $i - 1));?>#simplex">
 <?php print $this->location->getPathLink($i, true);?>
-</a> /
-	<?php
-	}
-	?>
+	</a> /
+			<?php
+		}
+		?>
 </p>
 </div>
 </div>
-	<?php
-}
-?>
+		<?php
+	}
+	?>
 
 <table class="table table-hover">
-<thead class="small text-left">
+<thead class="small">
 <tr>
-<th style="width: 5%;">
-</th>
-<th class="no-strong"><?php print $this->makeArrow("name");?></th>
-<th class="no-strong text-right" align="right" style="width: 25%;"><?php print $this->makeArrow("size");?></th>
-<th class="no-strong text-center hidden-xs" align="right" style="width: 20%;"><?php print $this->makeArrow("mod");?></th>
+<th style="width: 39px;"></th>
+<th class="no-strong text-left"><?php print $this->makeArrow("name");?></th>
+<th class="no-strong text-center hidden-xs" style="width: 156px;"><?php print $this->makeArrow("mod");?></th>
+<th class="no-strong text-center" style="width: 78px;"><?php print $this->makeArrow("size");?></th>
 	<?php
 	if(GateKeeper::isDeleteAllowed())
 	{
-	?>
-<th class="no-strong text-center" align="right" style="width: 8%;"><?php print Simplex::getString("langFileDelete");?></th>
-	<?php
+		?>
+<th class="no-strong text-center" style="width: 39px;"><?php print Simplex::getString("langFileDelete");?></th>
+		<?php
 	}
 	?>
 </tr>
@@ -2142,94 +2147,94 @@ if(Simplex::getConfig('confShowBreadcrumb') == true)
 <tbody>
 <tr>
 <td><img alt="dir" src="?img=folder-home"></td>
-<td><a href="<?php print $this->makeLink(false, null, null, null, $this->location->getDir(false, true, false, 1));?>#simplex">..</a></td>
-<td></td>
+<td class="text-left"><a href="<?php print $this->makeLink(false, null, null, null, $this->location->getDir(false, true, false, 1));?>#simplex">..</a></td>
 <td class="hidden-xs"></td>
+<td></td>
 	<?php
 	if(GateKeeper::isDeleteAllowed())
 	{
-	?>
+		?>
 <td></td>
-	<?php
+		<?php
 	}
 	?>
 </tr>
-<?php
-//
-// Ready to display folders and files.
-//
-$row = 1;
+	<?php
+	//
+	// Ready to display folders and files.
+	//
+	$row = 1;
 
-//
-// Folders first
-//
-if($this->dirs)
-{
-	foreach ($this->dirs as $dir)
+	//
+	// Folders first
+	//
+	if($this->dirs)
 	{
-	?>
+		foreach ($this->dirs as $dir)
+		{
+			?>
 <tr>
 <td><img alt="dir" src="?img=folder"></td>
-<td><a href="<?php print $this->makeLink(false, null, null, null, $this->location->getDir(false, true, false, 0).$dir->getNameEncoded());?>/#simplex"><?php print $dir->getNameHtml();?></a></td>
-<td></td>
+<td class="text-left"><a href="<?php print $this->makeLink(false, null, null, null, $this->location->getDir(false, true, false, 0).$dir->getNameEncoded());?>/#simplex"><?php print $dir->getNameHtml();?></a></td>
 <td class="hidden-xs"></td>
-	<?php
-		if(GateKeeper::isDeleteAllowed())
-		{
-		?>
+<td></td>
+			<?php
+			if(GateKeeper::isDeleteAllowed())
+			{
+				?>
 <td class="text-center delete"><a data-name="<?php print htmlentities($dir->getName());?>" href="<?php print $this->makeLink(false, null, null, $this->location->getDir(false, true, false, 0).$dir->getNameEncoded(), $this->location->getDir(false, true, false, 0));?>"><img src="?img=del" alt="<?php print $this->getString("langInfoDelete");?>"></a></td>
-		<?php
-		}
-		?>
+				<?php
+			}
+			?>
 </tr>
-		<?php
-		$row =! $row;
+			<?php
+			$row =! $row;
+		}
 	}
-}
 
-//
-// Now the files
-//
-if($this->files)
-{
-	$count = 0;
-	foreach ($this->files as $file)
+	//
+	// Now the files
+	//
+	if($this->files)
 	{
-		?>
+		$count = 0;
+		foreach ($this->files as $file)
+		{
+			?>
 <tr>
 <td><img alt="<?php print $file->getType();?>" src="<?php print $this->makeIcon($file->getType());?>"></td>
-<td><a href="<?php print $this->location->getDir(false, true, false, 0).$file->getNameEncoded();?>"
-		<?php
-		if(Simplex::getConfig('confNewWindow') == true)
-			print " target=\"_blank\"";
-		print ">";
-		print $file->getNameHtml();
-		?>
+<td class="text-left"><a href="<?php print $this->location->getDir(false, true, false, 0).$file->getNameEncoded();?>"
+			<?php
+			if(Simplex::getConfig('confNewWindow') == true)
+				print " target=\"_blank\"";
+			print ">";
+			print $file->getNameHtml();
+			?>
 </a></td>
-<td class="text-right"><?php print $this->formatSize($file->getSize());?></td>
-<td class="hidden-xs text-center"><?php print $this->formatModTime($file->getModTime());?></td>
-		<?php
-		if(GateKeeper::isDeleteAllowed()){
-		?>
-<td class="text-center delete"><a data-name="<?php print htmlentities($file->getName());?>" href="<?php print $this->makeLink(false, null, null, $this->location->getDir(false, true, false, 0).$file->getNameEncoded(), $this->location->getDir(false, true, false, 0));?>">
+<td class="hidden-xs"><?php print $this->formatModTime($file->getModTime());?></td>
+<td><?php print $this->formatSize($file->getSize());?></td>
+			<?php
+			if(GateKeeper::isDeleteAllowed()){
+				?>
+<td class="delete"><a data-name="<?php print htmlentities($file->getName());?>" href="<?php print $this->makeLink(false, null, null, $this->location->getDir(false, true, false, 0).$file->getNameEncoded(), $this->location->getDir(false, true, false, 0));?>">
 <img src="?img=del" alt="<?php print $this->getString("langInfoDelete");?>"></a></td>
-		<?php
-		}
-	?>
+				<?php
+			}
+			?>
 </tr>
-	<?php
-		$row =! $row;
+			<?php
+			$row =! $row;
+		}
 	}
-}
 
 
-//
-// The files and folders have been displayed
-//
-?>
+	//
+	// The files and folders have been displayed
+	//
+	?>
 </tbody>
 </table>
-<?php
+	<?php
 }
 ?>
 </section>
