@@ -1594,7 +1594,7 @@ class Simplex
 		if(isset($_GET['lang']) && isset($LANG[$_GET['lang']]))
 			$this->lang = $_GET['lang'];
 		else
-			$this->lang = Simplex::getConfig("lang");
+			$this->lang = Simplex::getConfig("confLang");
 
 		$this->logging = false;
 		if(Simplex::getConfig("confLogFile") != null && strlen(Simplex::getConfig("confLogFile")) > 0)
@@ -1721,7 +1721,7 @@ class Simplex
 			return $link;
 		}
 
-		if(isset($this->lang) && $this->lang != Simplex::getConfig("lang"))
+		if(isset($this->lang) && $this->lang != Simplex::getConfig("confLang"))
 			$link .= "lang=".$this->lang."&amp;";
 
 		if($sort_by != null && strlen($sort_by) > 0)
