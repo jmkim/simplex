@@ -6,6 +6,7 @@ Try **[Simplex Demo](http://kdzlvaids.github.io/simplex/demo/)**
 
  - [How to install](#how-to-install)
  - [Documentation](#documentation)
+ - [Demo Site](#demo-site)
  - [Credits](#credits)
  - [License](#license)
 
@@ -31,6 +32,8 @@ $ rm -rf Simplex
 ### [Documentation](http://kdzlvaids.github.io/simplex/)
 
 `(Not yet implemented)`
+
+### [Demo Site](http://kdzlvaids.github.io/simplex/demo/)
 
 ### Credits
 
