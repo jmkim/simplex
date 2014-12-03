@@ -103,9 +103,9 @@ $CONFIG['confShowLoadTime'] = true;
 
 //
 // The time format for the "last changed" column.
-// Default: $CONFIG['confTimeFormat'] = "d.m.y H:i:s";
+// Default: $CONFIG['confTimeFormat'] = "M d, Y G:i";
 //
-$CONFIG['confTimeFormat'] = "d.m.y H:i:s";
+$CONFIG['confTimeFormat'] = "M d, Y G:i";
 
 //
 // Charset. Use the one that suits for you.
