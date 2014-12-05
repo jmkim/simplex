@@ -991,7 +991,7 @@ class GateKeeper
 	{
 		global $simplex;
 		if(strlen(Simplex::getConfig("confSession")) > 0)
-				confSession(Simplex::getConfig("confSession"));
+			session_name(Simplex::getConfig("confSession"));
 
 		if(count(Simplex::getConfig("confUsers")) > 0)
 			session_start();
