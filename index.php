@@ -1161,13 +1161,13 @@ class FileManager
 		if(get_magic_quotes_gpc())
 			$name = stripslashes($name);
 
-		$upload_dir = $location->getFullPath();
-		$upload_file = $upload_dir . $name;
+		$uploadDir = $location->getFullPath();
+		$uploadFile = $uploadDir . $name;
 
 		if(function_exists("finfo_open") && function_exists("finfo_file"))
-			$mime_type = File::getFileMime($newFile['tmp_name']);
+			$mimeType = File::getFileMime($newFile['tmp_name']);
 		else
-			$mime_type = $newFile['type'];
+			$mimeType = $newFile['type'];
 
 		$extension = File::getFileExtension($newFile['name']);
 
@@ -1183,7 +1183,7 @@ class FileManager
 		{
 			$simplex->setErrorString("langErrorUpload");
 		}
-		else if(is_array(Simplex::getConfig("confUploadType")) && count(Simplex::getConfig("confUploadType")) > 0 && !in_array($mime_type, Simplex::getConfig("confUploadType")))
+		else if(is_array(Simplex::getConfig("confUploadType")) && count(Simplex::getConfig("confUploadType")) > 0 && !in_array($mimeType, Simplex::getConfig("confUploadType")))
 		{
 			$simplex->setErrorString("langErrorUploadType");
 		}
@@ -1191,13 +1191,13 @@ class FileManager
 		{
 			$simplex->setErrorString("langErrorUploadType");
 		}
-		else if(!@move_uploaded_file($newFile['tmp_name'], $upload_file))
+		else if(!@move_uploaded_file($newFile['tmp_name'], $uploadFile))
 		{
 			$simplex->setErrorString("langErrorMove");
 		}
 		else
 		{
-			chmod($upload_file, 0755);
+			chmod($uploadFile, 0755);
 			Logger::logCreation($location->getDir(true, false, false, 0).$name, false);
 			Logger::emailNotification($location->getDir(true, false, false, 0).$name, true);
 		}
@@ -1380,9 +1380,9 @@ class File
 		 * This extracts the information from the file contents.
 		 * Unfortunately it doesn't properly detect the difference between text-based file types.
 		 *
-		$mime_type = File::getMimeType($filepath);
-		$mime_type_chunks = explode("/", $mime_type, 2);
-		$type = $mime_type_chunks[1];
+		$mimeType = File::getMimeType($filepath);
+		$mimeType_chunks = explode("/", $mimeType, 2);
+		$type = $mimeType_chunks[1];
 		*/
 		return File::getFileExtension($filepath);
 	}
@@ -1390,12 +1390,12 @@ class File
 	public static function getFileMime($filepath)
 	{
 		$fhandle = finfo_open(FILEINFO_MIME);
-		$mime_type = finfo_file($fhandle, $filepath);
-		$mime_type_chunks = preg_split('/\s+/', $mime_type);
-		$mime_type = $mime_type_chunks[0];
-		$mime_type_chunks = explode(";", $mime_type);
-		$mime_type = $mime_type_chunks[0];
-		return $mime_type;
+		$mimeType = finfo_file($fhandle, $filepath);
+		$mimeType_chunks = preg_split('/\s+/', $mimeType);
+		$mimeType = $mimeType_chunks[0];
+		$mimeType_chunks = explode(";", $mimeType);
+		$mimeType = $mimeType_chunks[0];
+		return $mimeType;
 	}
 
 	public static function getFileExtension($filepath)
@@ -1744,7 +1744,7 @@ class Simplex
 
 	function formatModTime($time)
 	{
-		$timeformat = "d.m.y H:i:s";
+		$timeformat = "M d, Y G:i";
 		if(Simplex::getConfig("confTimeFormat") != null && strlen(Simplex::getConfig("confTimeFormat")) > 0)
 			$timeformat = Simplex::getConfig("confTimeFormat");
 		return date($timeformat, $time);
@@ -1871,14 +1871,14 @@ class Simplex
 		?>
 <div class="form-group">
 <label class="sr-only" for="inputUsername"><?php print $this->getString("langInputUsername");?></label>
-<input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="<?php print $this->getString("langInputUsername");?>" required>
+<input type="text" name="inputUsername" id="inputUsername" class="form-control" placeholder="<?php print $this->getString("langInputUsername");?>" required>
 </div>
 <?php
 		}
 	?>
 <div class="form-group">
 <label class="sr-only" for="inputPassword"><?php print $this->getString("langInputPassword");?></label>
-<input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="<?php print $this->getString("langInputPassword");?>" required>
+<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="<?php print $this->getString("langInputPassword");?>" required>
 </div>
 <button class="btn btn-default hidden-xs" type="submit"><?php print $this->getString("langBtnSignin");?></button>
 <button class="btn btn-default btn-block visible-xs" type="submit"><?php print $this->getString("langBtnSignin");?></button>
@@ -1898,7 +1898,7 @@ class Simplex
 		global $LOADTIME;
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php print $this->getConfig('confLang');?>" lang="<?php print $this->getConfig('confLang');?>">
+<html lang="<?php print $this->getConfig('confLang');?>">
 <head>
 <meta charset=<?php print $this->getConfig('confCharset');?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -2060,7 +2060,7 @@ if(Simplex::getConfig('confShowHeader') == true)
 <?php
 }
 ?>
-<a name="simplex"></a>
+<a id="simplex"></a>
 
 <?php
 if(Simplex::getConfig('confShowHeader') == true)
@@ -2129,7 +2129,7 @@ else
 <th style="width: 39px;"></th>
 <th class="no-strong text-left"><?php print $this->makeArrow("name");?></th>
 <th class="no-strong text-center hidden-xs" style="width: 156px;"><?php print $this->makeArrow("mod");?></th>
-<th class="no-strong text-center" style="width: 78px;"><?php print $this->makeArrow("size");?></th>
+<th class="no-strong text-center" style="width: 97.5px;"><?php print $this->makeArrow("size");?></th>
 <?php
 	if(GateKeeper::isDeleteAllowed())
 	{
@@ -2252,7 +2252,7 @@ if(GateKeeper::isAccessAllowed() && $this->location->uploadAllowed() && (GateKee
 <form class="navbar-form navbar-right" enctype="multipart/form-data" method="post">
 <div class="form-group">
 <label class="sr-only" for="newDir"><?php print $this->getString("langInfoMkDir");?></label>
-<input class="form-control" name="newDir" placeholder="<?php print $this->getString("langInfoMkDir");?>" type="text" required>
+<input class="form-control" name="newDir" id="newDir" placeholder="<?php print $this->getString("langInfoMkDir");?>" type="text" required>
 </div>
 <button class="btn btn-default hidden-xs" type="submit"><?php print $this->getString("langBtnMkdir");?></button>
 <button class="btn btn-default btn-block visible-xs" type="submit"><?php print $this->getString("langBtnMkdir");?></button>
@@ -2266,7 +2266,7 @@ if(GateKeeper::isAccessAllowed() && $this->location->uploadAllowed() && (GateKee
 <label class="sr-only" for="newFile"><?php print $this->getString("langInfoUpload");?></label>
 <div class="input-group">
 <span class="input-group-btn">
-<span class="btn btn-default btn-file"><?php print $this->getString("langBtnChooseFile");?><input type="file"  name="newFile" multiple></span>
+<span class="btn btn-default btn-file"><?php print $this->getString("langBtnChooseFile");?><input type="file" name="newFile" id="newFile" multiple></span>
 </span>
 <input type="text" class="form-control" placeholder="<?php print $this->getString("langInfoUpload");?>" readonly>
 </div>
