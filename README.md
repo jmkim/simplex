@@ -17,7 +17,7 @@ Just put `index.php` in your sharing folder.
 $ cd directory_you_wanna_share/
 
 # clone Simplex git to your sharing directory
-$ git clone git@github.com:Presilo/Simplex.git
+$ git clone git@github.com:kdzlvaids/Simplex.git
 
 # move index.php to the parent directory
 $ cd Simplex/
