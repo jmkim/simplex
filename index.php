@@ -1900,7 +1900,7 @@ class Simplex
 <!DOCTYPE html>
 <html lang="<?php print $this->getConfig('confLang');?>">
 <head>
-<meta charset=<?php print $this->getConfig('confCharset');?>">
+<meta charset="<?php print $this->getConfig('confCharset');?>">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title><?php if(Simplex::getConfig('confTitle') != null) print Simplex::getConfig('confTitle');?></title>
