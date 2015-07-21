@@ -1,6 +1,6 @@
 # Simplex
 
-Try **[Simplex Demo](https://simplex-demo-kdzlvaids.c9.io/)**
+Try **[Simplex Demo](https://kdzlvaids.github.io/simplex/demo/)**
 
 ### Works well on [PHP](http://php.net/) with [any](http://www.apache.org/) [web](http://nginx.org/) [servers](http://www.lighttpd.net/)
 
