@@ -32,7 +32,7 @@ $ rm -rf Simplex
 
 ### Credits
 
- - Based off [Encode Explorer](https://github.com/marekrei/encode-explorer) by [Marek Rei](http://www.marekrei.com).
+ - Based on [Encode Explorer](https://github.com/marekrei/encode-explorer) by [Marek Rei](http://www.marekrei.com).
  - [Faenza Icons](http://tiheum.deviantart.com/art/Faenza-Icons-173323228) are used in Simplex.
 
 ### License
