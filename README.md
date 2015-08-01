@@ -5,7 +5,6 @@ Try **[Simplex Demo](https://kdzlvaids.github.io/simplex/demo/)**
 ### Works well on [PHP](http://php.net/) with [any](http://www.apache.org/) [web](http://nginx.org/) [servers](http://www.lighttpd.net/)
 
  - [How to install](#how-to-install)
- - [Documentation](#documentation)
  - [Demo Site](#demo-site)
  - [Credits](#credits)
  - [License](#license)
@@ -29,11 +28,7 @@ $ rm -rf .htaccess
 $ rm -rf Simplex
 ```
 
-### [Documentation](http://kdzlvaids.github.io/simplex/)
-
-`(Not yet implemented)`
-
-### [Demo Site](https://simplex-demo-kdzlvaids.c9.io/)
+### [Demo Site](https://kdzlvaids.github.io/simplex/demo/)
 
 ### Credits
 
