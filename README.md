@@ -1,17 +1,12 @@
 # Simplex
 
-Try **[Simplex Demo](https://kdzlvaids.github.io/simplex/demo/)**
+Works well on [PHP](http://php.net/) with [any](http://www.apache.org/) [web](http://nginx.org/) [servers](http://www.lighttpd.net/).
+Try [Simplex Demo](https://kdzlvaids.github.io/simplex/demo/).
 
-### Works well on [PHP](http://php.net/) with [any](http://www.apache.org/) [web](http://nginx.org/) [servers](http://www.lighttpd.net/)
-
- - [How to install](#how-to-install)
- - [Demo Site](#demo-site)
- - [Credits](#credits)
- - [License](#license)
-
-### How to install
-
-Just put `index.php` in your sharing folder.
+## How to install
+```
+Just put index.php in your sharing folder.
+```
 ```bash
 $ cd directory_you_wanna_share/
 
@@ -28,14 +23,14 @@ $ rm -rf .htaccess
 $ rm -rf Simplex
 ```
 
-### [Demo Site](https://kdzlvaids.github.io/simplex/demo/)
+## [Demo Site](https://kdzlvaids.github.io/simplex/demo/)
 
-### Credits
+## Credits
 
  - Based on [Encode Explorer 6.3](https://github.com/marekrei/encode-explorer/tree/6.3) by [Marek Rei](http://www.marekrei.com).
  - [Faenza Icons](http://tiheum.deviantart.com/art/Faenza-Icons-173323228) are used in Simplex.
 
-### License
+## License
 
 ```
 	This is free software and it's distributed under GNU/GPL Licence.
