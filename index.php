@@ -12,7 +12,6 @@
  *   Based on Encode Explorer 6.4.1 by Marek Rei
  *   http://encode-explorer.siineiolekala.net
  *
- *   Comments are in English.
  *   If you change anything, save with UTF-8! Otherwise you may
  *   encounter problems, especially when displaying images.
  *
