@@ -2,13 +2,14 @@
 /***************************************************************************
  *
  *   Simplex
+ *   6.3
  *
  *   Jongmin Kim
  *   kdzlvaids@gmail.com
  *
  *   https://github.com/kdzlvaids/Simplex
  *
- *   Based on Encode Explorer by Marek Rei
+ *   Based on Encode Explorer 6.3 by Marek Rei
  *   http://encode-explorer.siineiolekala.net
  *
  *   Comments are in English.
