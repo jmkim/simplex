@@ -843,7 +843,6 @@ $LANG["tr"] = array(
     "langInfoRoot" => "Root"
 );
 
-
 /***************************************************************************/
 /*   IMAGE CODES IN BASE64                                                 */
 /*   You can generate your own with a converter                            */
@@ -851,7 +850,6 @@ $LANG["tr"] = array(
 /*   Or here: http://www.greywyvern.com/code/php/binary2base64             */
 /*   Or just use PHP base64_encode() function                              */
 /***************************************************************************/
-
 
 $ICON = array();
 
@@ -1037,7 +1035,6 @@ $ICON["m4v"] = $ICON["video"];
 $ICON["f4v"] = $ICON["video"];
 $ICON["f4p"] = $ICON["video"];
 $ICON["ogv"] = $ICON["video"];
-
 
 /***************************************************************************/
 /*   HERE COMES THE CODE.                                                  */
