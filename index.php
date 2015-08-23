@@ -2,24 +2,17 @@
 /***************************************************************************
  *
  *   Simplex
-<<<<<<< HEAD
- *   6.4.1
-=======
  *   6.3
->>>>>>> 376313cb9718b27d9f972b6b34fb21fee8bad28e
  *
  *   Jongmin Kim
  *   kdzlvaids@gmail.com
  *
  *   https://github.com/kdzlvaids/Simplex
  *
-<<<<<<< HEAD
- *   Based on Encode Explorer 6.4.1 by Marek Rei
-=======
  *   Based on Encode Explorer 6.3 by Marek Rei
->>>>>>> 376313cb9718b27d9f972b6b34fb21fee8bad28e
  *   http://encode-explorer.siineiolekala.net
  *
+ *   Comments are in English.
  *   If you change anything, save with UTF-8! Otherwise you may
  *   encounter problems, especially when displaying images.
  *
@@ -203,32 +196,6 @@ $CONFIG['confUploadType'] = array();
 //
 $CONFIG['confUploadRejectExtension'] = array();
 
-//
-// By default, apply 0755 permissions to new directories
-//
-// The mode parameter consists of three octal number components specifying
-// access restrictions for the owner, the user group in which the owner is
-// in, and to everybody else in this order.
-//
-// See: https://php.net/manual/en/function.chmod.php
-//
-// Default: $CONFIG['confModeNewDir'] = 0755;
-//
-$CONFIG['confModeNewDir'] = 0755;
-
-//
-// By default, apply 0644 permissions to uploaded files
-//
-// The mode parameter consists of three octal number components specifying
-// access restrictions for the owner, the user group in which the owner is
-// in, and to everybody else in this order.
-//
-// See: https://php.net/manual/en/function.chmod.php
-//
-// Default: $CONFIG['confModeNewFile'] = 0644;
-//
-$CONFIG['confModeNewFile'] = 0644;
- 
 /*
  * LOGGING
  */
@@ -290,483 +257,329 @@ $LANG = array();
 
 // Albanian
 $LANG["al"] = array(
-    "langFileName" => "Emri Skedarit",
-    "langFileSize" => "Madhësia",
-    "langFileLastmod" => "Ndryshuar",
-    "langInfoSpaceUsed" => "Memorija e përdorur total",
-    "langInfoSpaceFree" => "Memorija e lirë",
-    "langInputPassword" => "Fjalëkalimi",
-    "langBtnUpload" => "Ngarko skedarë",
-    "langErrorUpload" => "Ngarkimi i skedarit dështoi!",
-    "langErrorMove" => "Lëvizja e skedarit në udhëzuesin e saktë deshtoi!",
-    "langBtnMkdir" => "New dir",
-    "langErrorMkDir" => "Failed to create directory",
-    "langErrorChDir" => "Failed to change directory rights",
-    "langErrorReadDir" => "Unable to read directory",
-    "langInfoRoot" => "Root"
-);
-
-// Czech
-$LANG["cz"] = array(
-    "langFileName" => "Název souboru",
-    "langFileSize" => "Velikost",
-    "langFileLastmod" => "Změněno",
-    "langInfoSpaceUsed" => "Obsazený prostor",
-    "langInfoSpaceFree" => "Volný prostor",
-    "langInputPassword" => "Heslo",
-    "langBtnUpload" => "Nahrát",
-    "langErrorUpload" => "Nahrávání se nezdařilo!",
-    "langErrorMove" => "Přesun souboru do určeného adresáře se nezdařil!",
-    "langBtnMkdir" => "Nový adresář",
-    "langErrorMkDir" => "Vytvoření adresáře se nezdařilo",
-    "langErrorChDir" => "Změna práv adresáře se nezdařila",
-    "langErrorReadDir" => "Chyba při čtení adresáře",
-    "langInfoRoot" => "Kořenový adresář",
-    "langErrorWriteLog" => "Skript nemá oprávnění k zápisu do souboru protokolu.",
-    "langErrorUploadDenied" => "Konfigurační skript neumožňuje nahrávání v tomto adresáři.",
-    "langErrorUploadPermission" => "Tento adresář nemá oprávnění k zápisu.",
-    "langInfoLoadTime" => "Stránka nahrána za %.2f ms",
-    "langErrorSignin" => "Špatné uživatelské jméno nebo heslo",
-    "langInputUsername" => "Uživatelské jméno",
-    "langBtnSignin" => "Přihlásit se",
-    "langErrorUploadType" => "Tento typ souboru není povolen pro nahrávání.",
-    "langFileDelete" => "Smazat",
-    "langBtnSignout" => "Odhlásit se"
-);
-
-// German
-$LANG["de"] = array(
-    "langFileName" => "Dateiname",
-    "langFileSize" => "Gr&ouml;&szlig;e",
-    "langFileLastmod" => "Letzte &Auml;nderung",
-    "langInfoSpaceUsed" => "Benutzter Speicherplatz",
-    "langInfoSpaceFree" => "Freier Speicherplatz",
-    "langInputPassword" => "Passwort",
-    "langBtnUpload" => "Upload",
-    "langErrorUpload" => "Upload ist fehlgeschlagen!",
-    "langErrorMove" => "Verschieben der Datei ist fehlgeschlagen!",
-    "langBtnMkdir" => "Neuer Ordner",
-    "langErrorMkDir" => "Erstellen des Ordners fehlgeschlagen",
-    "langErrorChDir" => "Ver&auml;nderung der Zugriffsrechte des Ordners fehlgeschlagen",
-    "langErrorReadDir" => "Ordner konnte nicht gelesen werden",
-    "langInfoRoot" => "Wurzelverzeichnis",
-    "langErrorWriteLog" => "Das Script kann wegen fehlenden Berechtigungen keine Log Datei schreiben.",
-    "langErrorUploadDenied" => "Die Scriptkonfiguration erlaubt kein Hochladen in dieses Verzeichnis.",
-    "langErrorUploadPermission" => "Dieser Ordner besitzt keine Schreibrechte.",
-    "langInfoLoadTime" => "Die Seite wurde in %.2f ms geladen",
-    "langErrorSignin" => "Benutzername oder Kennwort falsch",
-    "langInputUsername" => "Benutzername",
-    "langBtnSignin" => "Einloggen",
-    "langErrorUploadType" => "Dieser Dateityp darf nicht hochgeladen werden.",
-    "langFileDelete" => "Entfernen",
-    "langBtnSignout" => "Ausloggen"
-);
-
-// Greek
-$LANG["el"] = array(
-    "langFileName" => "Όνομα αρχείου",
-    "langFileSize" => "Μέγεθος",
-    "langFileLastmod" => "Τροποποιημένο",
-    "langInfoSpaceUsed" => "Χρησιμοποιημένος χώρος",
-    "langInfoSpaceFree" => "Ελεύθερος χώρος",
-    "langInputPassword" => "Εισάγεται κωδικό",
-    "langBtnUpload" => "Φόρτωση",
-    "langErrorUpload" => "Αποτυχία φόρτωσης αρχείου!",
-    "langErrorMove" => "Αποτυχία μεταφοράς αρχείου στον κατάλληλο φάκελο!",
-    "langBtnMkdir" => "Δημιουργία νέου φακέλου",
-    "langErrorMkDir" => "Αποτυχία δημιουργίας νέου φακέλου",
-    "langErrorChDir" => "Αποτυχία τροποποίησης δικαιωμάτων φακέλου",
-    "langErrorReadDir" => "Unable to read directory",
-    "langInfoRoot" => "Root"
-);
-
-
-// English
-$LANG["en"] = array(
-    "langFileName" => "File name",
-    "langFileSize" => "langFileSize",
-    "langFileLastmod" => "Last updated",
-    "langInfoSpaceUsed" => "Total space used",
-    "langInfoSpaceFree" => "Free space",
-    "langInputPassword" => "langInputPassword",
-    "langBtnUpload" => "Upload",
-    "langErrorUpload" => "Failed to upload the file!",
-    "langErrorMove" => "Failed to move the file into the right directory!",
-    "langBtnMkdir" => "New directory",
-    "langErrorMkDir" => "Failed to create directory",
-    "langErrorChDir" => "Failed to change directory rights",
-    "langErrorReadDir" => "Unable to read directory",
-    "langInfoRoot" => "Root",
-    "langErrorWriteLog" => "The script does not have permissions to write the log file.",
-    "langErrorUploadDenied" => "The script configuration does not allow uploading in this directory.",
-    "langErrorUploadPermission" => "This directory does not have write permissions.",
-    "langInfoLoadTime" => "Page loaded in %.2f ms",
-    "langErrorSignin" => "Wrong username or password",
-    "langInputUsername" => "Username",
-    "langBtnSignin" => "Log in",
-    "langErrorUploadType" => "This file type is not allowed for uploading.",
-    "langFileDelete" => "Delete", // short for Delete if word is too long
-    "langBtnSignout" => "Log out",
-    "langInfoMkDir" => "Create a new directory",
-    "langInfoUpload" => "Upload new file",
-    "langBtnChooseFile" => "Select",
-    "langInfoSignin" => "Before upload, please log in.",
-    "langInfoDelete" => "Delete"
-);
-
-// Esperanto
-$LANG["eo"] = array(
-    "langFileName" => "Dosiernomo",
-    "langFileSize" => "Grando",
-    "langFileLastmod" => "Lasta ŝanĝo",
-    "langInfoSpaceUsed" => "Uzata spaco",
-    "langInfoSpaceFree" => "Disponebla spaco",
-    "langInputPassword" => "pasvorto",
-    "langBtnUpload" => "Alŝuto",
-    "langErrorUpload" => "Alŝuto malsukcesis!",
-    "langErrorMove" => "Movo de la dosiero malsukcesis!",
-    "langBtnMkdir" => "Nova dosierujo",
-    "langErrorMkDir" => "Kreado de dosierujo malsukcesis",
-    "langErrorChDir" => "Ŝanĝo de dosierujaj rajtoj malsukcesis",
-    "langErrorReadDir" => "Dosierujo ne estas legebla",
-    "langInfoRoot" => "Radiko",
-    "langErrorWriteLog" => "La skripto ne rajtas skribi la protokolan dosieron.",
-    "langErrorUploadDenied" => "La skripto malpermesas alŝuti en ĉi tiun dosierujon.",
-    "langErrorUploadPermission" => "Ĉi tiu dosierujo ne rajtigas skribadon.",
-    "langInfoLoadTime" => "Paĝo ŝarĝita en %.2f ms",
-    "langErrorSignin" => "Malĝusta salutnomo aŭ pasvorto",
-    "langInputUsername" => "Salutnomo",
-    "langBtnSignin" => "Ensaluto",
-    "langErrorUploadType" => "Alŝuto estas malpermesita por ĉi tiu dosiertipo.",
-    "langFileDelete" => "For",
-    "langBtnSignout" => "Adiaŭo"
-);
-
-// Spanish
-$LANG["es"] = array(
-    "langFileName" => "Nombre de archivo",
-    "langFileSize" => "Medida",
-    "langFileLastmod" => "Ultima modificación",
-    "langInfoSpaceUsed" => "Total espacio usado",
-    "langInfoSpaceFree" => "Espacio libre",
-    "langInputPassword" => "Contraseña",
-    "langBtnUpload" => "Subir el archivo",
-    "langErrorUpload" => "Error al subir el archivo!",
-    "langErrorMove" => "Error al mover el archivo al directorio seleccionado!",
-    "langBtnMkdir" => "Crear directorio",
-    "langErrorMkDir" => "Error al crear el directorio",
-    "langErrorChDir" => "Error al cambiar los derechos de directorio",
-    "langErrorReadDir" => "No es posible leer el directorio",
-    "langInfoRoot" => "Raíz"
-);
-
-// Estonian
-$LANG["et"] = array(
-    "langFileName" => "Faili nimi",
-    "langFileSize" => "Suurus",
-    "langFileLastmod" => "Viimati muudetud",
-    "langInfoSpaceUsed" => "Kokku kasutatud",
-    "langInfoSpaceFree" => "Vaba ruumi",
-    "langInputPassword" => "Parool",
-    "langBtnUpload" => "Uploadi",
-    "langErrorUpload" => "Faili ei &otilde;nnestunud serverisse laadida!",
-    "langErrorMove" => "Faili ei &otilde;nnestunud &otilde;igesse kausta liigutada!",
-    "langBtnMkdir" => "Uus kaust",
-    "langErrorMkDir" => "Kausta loomine ebaõnnestus",
-    "langErrorChDir" => "Kausta õiguste muutmine ebaõnnestus",
-    "langErrorReadDir" => "Unable to read directory",
-    "langInfoRoot" => "Peakaust"
-);
-
-// Finnish
-$LANG["fi"] = array(
-    "langFileName" => "Tiedoston nimi",
-    "langFileSize" => "Koko",
-    "langFileLastmod" => "Muokattu",
-    "langInfoSpaceUsed" => "Yhteenlaskettu koko",
-    "langInfoSpaceFree" => "Vapaa tila",
-    "langInputPassword" => "Salasana",
-    "langBtnUpload" => "Lisää tiedosto",
-    "langErrorUpload" => "Tiedoston lisäys epäonnistui!",
-    "langErrorMove" => "Tiedoston siirto kansioon epäonnistui!",
-    "langBtnMkdir" => "Uusi kansio",
-    "langErrorMkDir" => "Uuden kansion luonti epäonnistui!",
-    "langErrorChDir" => "Kansion käyttäjäoikeuksien muuttaminen epäonnistui!",
-    "langErrorReadDir" => "Kansion sisältöä ei voi lukea.",
-    "langInfoRoot" => "Juurihakemisto",
-    "langErrorWriteLog" => "Ohjelman ei ole sallittu kirjoittaa lokiin.",
-    "langErrorUploadDenied" => "Ohjelman asetukset eivät salli tiedoston lisäämistä tähän kansioon.",
-    "langErrorUploadPermission" => "Kansioon tallentaminen epäonnistui.",
-    "langInfoLoadTime" => "Sivu ladattu %.2f ms:ssa",
-    "langErrorSignin" => "Väärä käyttäjätunnus tai salasana",
-    "langInputUsername" => "Käyttäjätunnus",
-    "langBtnSignin" => "Kirjaudu sisään",
-    "langBtnSignout" => "Kirjaudu ulos",
-    "langErrorUploadType" => "Tämän tiedostotyypin lisääminen on estetty.",
-    "langFileDelete" => "Poista"
-);
-
-// French
-$LANG["fr"] = array(
-    "langFileName" => "Nom de fichier",
-    "langFileSize" => "Taille",
-    "langFileLastmod" => "Ajouté",
-    "langInfoSpaceUsed" => "Espace total utilisé",
-    "langInfoSpaceFree" => "Espace libre",
-    "langInputPassword" => "Mot de passe",
-    "langBtnUpload" => "Envoyer un fichier",
-    "langErrorUpload" => "Erreur lors de l'envoi",
-    "langErrorMove" => "Erreur lors du changement de dossier",
-    "langBtnMkdir" => "Nouveau dossier",
-    "langErrorMkDir" => "Erreur lors de la création du dossier",
-    "langErrorChDir" => "Impossible de changer les permissions du dossier",
-    "langErrorReadDir" => "Impossible de lire le dossier",
-    "langInfoRoot" => "Racine",
-    "langErrorWriteLog" => "Le script ne possède pas les permissions pour écrire un fichier d'enregistrement.",
-    "langErrorUploadDenied" => "La configuration actuelle ne permet de déposer un fichier dans ce dossier.",
-    "langErrorUploadPermission" => "Ce dossier ne possède pas les permissions en écriture.",
-    "langInfoLoadTime" => "Page chargée en %.2f ms",
-    "langErrorSignin" => "Identifiant ou mot de passe incorrect",
-    "langInputUsername" => "Identifiant",
-    "langBtnSignin" => "Connexion",
-    "langErrorUploadType" => "Ce format de fichier n'est pas autorisé.",
-    "langFileDelete" => "Effacer",
-    "langBtnSignout" => "Déconnexion"
-);
-
-// Hungarian
-$LANG["hu"] = array(
-    "langFileName" => "Fájl név",
-    "langFileSize" => "Méret",
-    "langFileLastmod" => "Utolsó módosítás",
-    "langInfoSpaceUsed" => "Összes elfoglalt terület",
-    "langInfoSpaceFree" => "Szabad terület",
-    "langInputPassword" => "Jelszó",
-    "langBtnUpload" => "Feltöltés",
-    "langErrorUpload" => "A fájl feltöltése nem sikerült!",
-    "langErrorMove" => "A fájl mozgatása nem sikerült!",
-    "langBtnMkdir" => "Új mappa",
-    "langErrorMkDir" => "A mappa létrehozása nem sikerült",
-    "langErrorChDir" => "A mappa jogainak megváltoztatása nem sikerült",
-    "langErrorReadDir" => "A mappa nem olvasható",
-    "langInfoRoot" => "Gyökér",
-    "langErrorWriteLog" => "A log fájl írása jogosultsági okok miatt nem sikerült.",
-    "langErrorUploadDenied" => "Ebbe a mappába a feltöltés nem engedélyezett.",
-    "langErrorUploadPermission" => "A mappa nem írható.",
-    "langInfoLoadTime" => "Letöltési id? %.2f ms",
-    "langErrorSignin" => "Rossz felhasználónév vagy jelszó",
-    "langInputUsername" => "Felhasználónév",
-    "langBtnSignin" => "Belépés",
-    "langErrorUploadType" => "A fájltípus feltöltése tiltott."
-);
-
-// Italian
-$LANG["it"] = array(
-    "langFileName" => "Nome file",
-    "langFileSize" => "Dimensione",
-    "langFileLastmod" => "Ultima modifica",
-    "langInfoSpaceUsed" => "Totale spazio usato",
-    "langInfoSpaceFree" => "Spazio disponibile",
-    "langInputPassword" => "Parola chiave",
-    "langBtnUpload" => "Caricamento file",
-    "langErrorUpload" => "Caricamento del file fallito!",
-    "langErrorMove" => "Spostamento del file nella cartella fallito!",
-    "langBtnMkdir" => "Nuova cartella",
-    "langErrorMkDir" => "Creazione cartella fallita!",
-    "langErrorChDir" => "Modifica dei permessi della cartella fallita!",
-    "langErrorReadDir" => "Non abilitato a leggere la cartella",
-    "langInfoRoot" => "Indice",
-    "langErrorWriteLog" => "Lo script non ha i permessi per scrivere il file di log.",
-    "langErrorUploadDenied" => "La configurazione dello script non permette l'upload in questa cartella.",
-    "langErrorUploadPermission" => "Questa cartella non ha i permessi di scrittura.",
-    "langInfoLoadTime" => "Page aperta in %.2f min",
-    "langErrorSignin" => "Username o password errati",
-    "langInputUsername" => "Username",
-    "langBtnSignin" => "Log in",
-    "langErrorUploadType" => "Questo formato di file non è abilitato per l'upload.",
-    "langFileDelete" => "Cancella",
-    "langBtnSignout" => "Esci"
-);
-
-// Korean
-$LANG["ko"] = array(
-    "langFileName" => "이름",
-    "langFileSize" => "크기",
-    "langFileLastmod" => "마지막 수정",
-    "langInfoSpaceUsed" => "사용한 공간",
-    "langInfoSpaceFree" => "남은 공간",
-    "langInputPassword" => "비밀번호",
-    "langBtnUpload" => "올리기",
-    "langErrorUpload" => "파일을 올릴 수 없습니다.",
-    "langErrorMove" => "파일을 옮길 수 없습니다.",
-    "langBtnMkdir" => "만들기",
-    "langErrorMkDir" => "폴더를 만들 수 없습니다.",
-    "langErrorChDir" => "권한 설정을 할 수 없습니다.",
-    "langErrorReadDir" => "폴더를 읽을 수 없습니다.",
-    "langInfoRoot" => "최상위 폴더",
-    "langErrorWriteLog" => "로그 파일의 위치에 쓰기 권한을 가지고 있지 않습니다.",
-    "langErrorUploadDenied" => "이 위치에 업로드 할 수 없습니다.",
-    "langErrorUploadPermission" => "이 위치에 쓰기 권한을 가지고 있지 않습니다.",
-    "langInfoLoadTime" => "%.2f ms",
-    "langErrorSignin" => "유저 이름 또는 비밀번호가 올바르지 않습니다.",
-    "langInputUsername" => "유저 이름",
-    "langBtnSignin" => "로그인",
-    "langErrorUploadType" => "이 종류의 파일은 올릴 수 없습니다.",
-    "langFileDelete" => "삭제",
-    "langBtnSignout" => "로그아웃",
-    "langInfoMkDir" => "폴더 만들기",
-    "langInfoUpload" => "파일 올리기",
-    "langBtnChooseFile" => "고르기",
-    "langInfoSignin" => "파일을 올리려면 로그인하세요.",
-    "langInfoDelete" => "삭제하기"
+	"langFileName" => "Emri Skedarit",
+	"langFileSize" => "Madhësia",
+	"langFileLastmod" => "Ndryshuar",
+	"langInfoSpaceUsed" => "Memorija e përdorur total",
+	"langInfoSpaceFree" => "Memorija e lirë",
+	"langInputPassword" => "Fjalëkalimi",
+	"langBtnUpload" => "Ngarko skedarë",
+	"langErrorUpload" => "Ngarkimi i skedarit dështoi!",
+	"langErrorMove" => "Lëvizja e skedarit në udhëzuesin e saktë deshtoi!",
+	"langErrorSignin" => "Fjalëkalimi i Gabuar!!"
 );
 
 // Dutch
 $LANG["nl"] = array(
-    "langFileName" => "Bestandsnaam",
-    "langFileSize" => "Omvang",
-    "langFileLastmod" => "Laatst gewijzigd",
-    "langInfoSpaceUsed" => "Totaal gebruikte ruimte",
-    "langInfoSpaceFree" => "Beschikbaar",
-    "langInputPassword" => "Wachtwoord",
-    "langBtnUpload" => "Upload",
-    "langErrorUpload" => "Fout bij uploaden van bestand!",
-    "langErrorMove" => "Fout bij het verplaatsen van tijdelijk uploadbestand!",
-    "langBtnMkdir" => "Nieuwe folder",
-    "langErrorMkDir" => "Fout bij aanmaken folder!",
-    "langErrorChDir" => "Rechten konden niet gewijzigd worden!",
-    "langErrorReadDir" => "Niet mogelijk om directorie te lezen",
-    "langInfoRoot" => "Root",
-    "langErrorWriteLog" => "Script heeft geen toegang tot het logbestand.",
-    "langErrorUploadDenied" => "Uploaden van bestanden is niet toegestaan.",
-    "langErrorUploadPermission" => "Het is niet toegestaan in deze directorie bestanden te plaatsen.",
-    "langInfoLoadTime" => "Pagina geladen in %.2f ms",
-    "langErrorSignin" => "Foutieve gebruikersnaam of wachtwoord",
-    "langInputUsername" => "Gebruikersnaam",
-    "langBtnSignin" => "Inloggen",
-    "langErrorUploadType" => "Dit type bestand is niet toegestaan.",
-    "langFileDelete" => "Verwijder",
-    "langBtnSignout" => "Uitloggen"
+	"langFileName" => "Bestandsnaam",
+	"langFileSize" => "Omvang",
+	"langFileLastmod" => "Laatst gewijzigd",
+	"langInfoSpaceUsed" => "Totaal gebruikte ruimte",
+	"langInfoSpaceFree" => "Beschikbaar",
+	"langInputPassword" => "Wachtwoord",
+	"langBtnUpload" => "Upload",
+	"langErrorUpload" => "Fout bij uploaden van bestand!",
+	"langErrorMove" => "Fout bij het verplaatsen van tijdelijk uploadbestand!",
+	"langErrorSignin" => "Fout wachtwoord!",
+	"langBtnMkdir" => "Nieuwe folder",
+	"langErrorMkDir" => "Fout bij aanmaken folder!",
+	"langErrorChDir" => "Rechten konden niet gewijzigd worden!"
+);
+
+// English
+$LANG["en"] = array(
+	"langFileName" => "File name",
+	"langFileSize" => "Size",
+	"langFileLastmod" => "Last changed",
+	"langInfoSpaceUsed" => "Total used space",
+	"langInfoSpaceFree" => "Free space",
+	"langInputPassword" => "Password",
+	"langBtnUpload" => "Upload",
+	"langErrorUpload" => "Failed to upload the file!",
+	"langErrorMove" => "Failed to move the file into the right directory!",
+	"langBtnMkdir" => "Create",
+	"langErrorMkDir" => "Failed to create directory",
+	"langErrorChDir" => "Failed to change directory rights",
+	"langErrorReadDir" => "Unable to read directory",
+	"langInfoRoot" => "Root Directory",
+	"langErrorWriteLog" => "The script does not have permissions to write the log file.",
+	"langErrorUploadDenied" => "The script configuration does not allow uploading in this directory.",
+	"langErrorUploadPermission" => "This directory does not have write permissions.",
+	"langInfoLoadTime" => "Page loaded in %.2f ms",
+	"langErrorSignin" => "Wrong username or password",
+	"langInputUsername" => "Username",
+	"langBtnSignin" => "Sign in",
+	"langErrorUploadType" => "This file type is not allowed for uploading.",
+	"langFileDelete" => "Del", // short for Delete
+	"langBtnSignout" => "Sign out",
+	"langInfoMkDir" => "New directory",
+	"langInfoUpload" => "Upload new file",
+	"langBtnChooseFile" => "Choose",
+	"langInfoSignin" => "Before upload, please sign in.",
+	"langInfoDelete" => "Delete"
+);
+
+// Estonian
+$LANG["et"] = array(
+	"langFileName" => "Faili nimi",
+	"langFileSize" => "Suurus",
+	"langFileLastmod" => "Viimati muudetud",
+	"langInfoSpaceUsed" => "Kokku kasutatud",
+	"langInfoSpaceFree" => "Vaba ruumi",
+	"langInputPassword" => "Parool",
+	"langBtnUpload" => "Uploadi",
+	"langErrorUpload" => "Faili ei &otilde;nnestunud serverisse laadida!",
+	"langErrorMove" => "Faili ei &otilde;nnestunud &otilde;igesse kausta liigutada!",
+	"langErrorSignin" => "Vale parool",
+	"langBtnMkdir" => "Uus kaust",
+	"langErrorMkDir" => "Kausta loomine ebaõnnestus",
+	"langErrorChDir" => "Kausta õiguste muutmine ebaõnnestus",
+	"langInfoRoot" => "Peakaust"
+);
+
+// Finnish
+$LANG["fi"] = array(
+	"langFileName" => "Tiedoston nimi",
+	"langFileSize" => "Koko",
+	"langFileLastmod" => "Muokattu",
+	"langInfoSpaceUsed" => "Yhteenlaskettu koko",
+	"langInfoSpaceFree" => "Vapaa tila",
+	"langInputPassword" => "Salasana",
+	"langBtnUpload" => "Lisää tiedosto",
+	"langErrorUpload" => "Tiedoston lisäys epäonnistui!",
+	"langErrorMove" => "Tiedoston siirto kansioon epäonnistui!",
+	"langBtnMkdir" => "Uusi kansio",
+	"langErrorMkDir" => "Uuden kansion luonti epäonnistui!",
+	"langErrorChDir" => "Kansion käyttäjäoikeuksien muuttaminen epäonnistui!",
+	"langErrorReadDir" => "Kansion sisältöä ei voi lukea.",
+	"langInfoRoot" => "Juurihakemisto",
+	"langErrorWriteLog" => "Ohjelman ei ole sallittu kirjoittaa lokiin.",
+	"langErrorUploadDenied" => "Ohjelman asetukset eivät salli tiedoston lisäämistä tähän kansioon.",
+	"langErrorUploadPermission" => "Kansioon tallentaminen epäonnistui.",
+	"langInfoLoadTime" => "Sivu ladattu %.2f ms:ssa",
+	"langErrorSignin" => "Väärä käyttäjätunnus tai salasana",
+	"langInputUsername" => "Käyttäjätunnus",
+	"langBtnSignin" => "Kirjaudu sisään",
+	"langBtnSignout" => "Kirjaudu ulos",
+	"langErrorUploadType" => "Tämän tiedostotyypin lisääminen on estetty.",
+	"langFileDelete" => "Poista"
+);
+
+// French
+$LANG["fr"] = array(
+	"langFileName" => "Nom de fichier",
+	"langFileSize" => "Taille",
+	"langFileLastmod" => "Ajout&eacute;",
+	"langInfoSpaceUsed" => "Espace total utilis&eacute;",
+	"langInfoSpaceFree" => "Espace libre",
+	"langInputPassword" => "Mot de passe",
+	"langBtnUpload" => "Envoyer un fichier",
+	"langErrorUpload" => "Erreur lors de l'envoi",
+	"langErrorMove" => "Erreur lors du changement de dossier",
+	"langErrorSignin" => "Mauvais mot de passe",
+	"langBtnMkdir" => "Nouveau dossier",
+	"langErrorMkDir" => "Erreur lors de la cr&eacute;ation du dossier",
+	"langErrorChDir" => "Impossible de changer les permissions du dossier",
+	"langErrorReadDir" => "Impossible de lire le dossier",
+	"langInfoRoot" => "Racine"
+);
+
+// German
+$LANG["de"] = array(
+	"langFileName" => "Dateiname",
+	"langFileSize" => "Größe",
+	"langFileLastmod" => "Letzte Änderung",
+	"langInfoSpaceUsed" => "Benutzter Speicher",
+	"langInfoSpaceFree" => "Freier Speicher",
+	"langInputPassword" => "Passwort",
+	"langBtnUpload" => "Upload",
+	"langErrorUpload" => "Upload ist fehlgeschlagen!",
+	"langErrorMove" => "Verschieben der Datei ist fehlgeschlagen!",
+	"langErrorSignin" => "Falsches Passwort",
+	"langBtnMkdir" => "Neuer Ordner",
+	"langErrorMkDir" => "Erstellen des Ordners fehlgeschlagen",
+	"langErrorChDir" => "Veränderung der Zugriffsrechte des Ordners fehlgeschlagen"
+);
+
+// Greek
+$LANG["el"] = array(
+	"langFileName" => "Όνομα αρχείου",
+	"langFileSize" => "Μέγεθος",
+	"langFileLastmod" => "Τροποποιημένο",
+	"langInfoSpaceUsed" => "Χρησιμοποιημένος χώρος",
+	"langInfoSpaceFree" => "Ελεύθερος χώρος",
+	"langInputPassword" => "Εισάγεται κωδικό",
+	"langBtnUpload" => "Φόρτωση",
+	"langErrorUpload" => "Αποτυχία φόρτωσης αρχείου!",
+	"langErrorMove" => "Αποτυχία μεταφοράς αρχείου στον κατάλληλο φάκελο!",
+	"langErrorSignin" => "Λάθος κωδικός",
+	"langBtnMkdir" => "Δημιουργία νέου φακέλου",
+	"langErrorMkDir" => "Αποτυχία δημιουργίας νέου φακέλου",
+	"langErrorChDir" => "Αποτυχία τροποποίησης δικαιωμάτων φακέλου"
+);
+
+// Hungarian
+$LANG["hu"] = array(
+	"langFileName" => "Fájl név",
+	"langFileSize" => "Méret",
+	"langFileLastmod" => "Utolsó módosítás",
+	"langInfoSpaceUsed" => "Összes elfoglalt terület",
+	"langInfoSpaceFree" => "Szabad terület",
+	"langInputPassword" => "Jelszó",
+	"langBtnUpload" => "Feltöltés",
+	"langErrorUpload" => "A fájl feltöltése nem sikerült!",
+	"langErrorMove" => "A fájl mozgatása nem sikerült!",
+	"langBtnMkdir" => "Új mappa",
+	"langErrorMkDir" => "A mappa létrehozása nem sikerült",
+	"langErrorChDir" => "A mappa jogainak megváltoztatása nem sikerült",
+	"langErrorReadDir" => "A mappa nem olvasható",
+	"langInfoRoot" => "Gyökér",
+	"langErrorWriteLog" => "A log fájl írása jogosultsági okok miatt nem sikerült.",
+	"langErrorUploadDenied" => "Ebbe a mappába a feltöltés nem engedélyezett.",
+	"langErrorUploadPermission" => "A mappa nem írható.",
+	"langInfoLoadTime" => "Letöltési id? %.2f ms",
+	"langErrorSignin" => "Rossz felhasználónév vagy jelszó",
+	"langInputUsername" => "Felhasználónév",
+	"langBtnSignin" => "Belépés",
+	"langErrorUploadType" => "A fájltípus feltöltése tiltott."
+);
+
+// Italian
+$LANG["it"] = array(
+	"langFileName" => "Nome file",
+	"langFileSize" => "Dimensione",
+	"langFileLastmod" => "Ultima modifica",
+	"langInfoSpaceUsed" => "Totale spazio usato",
+	"langInfoSpaceFree" => "Spazio disponibile",
+	"langInputPassword" => "Parola chiave",
+	"langBtnUpload" => "Caricamento file",
+	"langErrorUpload" => "Caricamento del file fallito!",
+	"langErrorMove" => "Spostamento del file nella cartella fallito!",
+	"langErrorSignin" => "Password sbagliata",
+	"langBtnMkdir" => "Nuova cartella",
+	"langErrorMkDir" => "Creazione cartella fallita!",
+	"langErrorChDir" => "Modifica dei permessi della cartella fallita!"
+);
+
+// Korean
+$LANG["ko"] = array(
+	"langFileName" => "이름",
+	"langFileSize" => "크기",
+	"langFileLastmod" => "마지막 수정",
+	"langInfoSpaceUsed" => "사용한 공간",
+	"langInfoSpaceFree" => "남은 공간",
+	"langInputPassword" => "비밀번호",
+	"langBtnUpload" => "올리기",
+	"langErrorUpload" => "파일을 올릴 수 없습니다.",
+	"langErrorMove" => "파일을 옮길 수 없습니다.",
+	"langBtnMkdir" => "만들기",
+	"langErrorMkDir" => "폴더를 만들 수 없습니다.",
+	"langErrorChDir" => "권한 설정을 할 수 없습니다.",
+	"langErrorReadDir" => "폴더를 읽을 수 없습니다.",
+	"langInfoRoot" => "최상위 폴더",
+	"langErrorWriteLog" => "로그 파일의 위치에 쓰기 권한을 가지고 있지 않습니다.",
+	"langErrorUploadDenied" => "이 위치에 업로드 할 수 없습니다.",
+	"langErrorUploadPermission" => "이 위치에 쓰기 권한을 가지고 있지 않습니다.",
+	"langInfoLoadTime" => "%.2f ms",
+	"langErrorSignin" => "유저 이름 또는 비밀번호가 올바르지 않습니다.",
+	"langInputUsername" => "유저 이름",
+	"langBtnSignin" => "로그인",
+	"langErrorUploadType" => "이 종류의 파일은 올릴 수 없습니다.",
+	"langFileDelete" => "삭제",
+	"langBtnSignout" => "로그아웃",
+	"langInfoMkDir" => "폴더 만들기",
+	"langInfoUpload" => "파일 올리기",
+	"langBtnChooseFile" => "고르기",
+	"langInfoSignin" => "파일을 올리려면 로그인하세요.",
+	"langInfoDelete" => "삭제하기"
 );
 
 // Norwegian
 $LANG["no"] = array(
-    "langFileName" => "Navn",
-    "langFileSize" => "Størrelse",
-    "langFileLastmod" => "Endret",
-    "langInfoSpaceUsed" => "Brukt plass",
-    "langInfoSpaceFree" => "Resterende plass",
-    "langInputPassword" => "Passord",
-    "langBtnUpload" => "Last opp",
-    "langErrorUpload" => "Opplasting gikk galt",
-    "langErrorMove" => "Kunne ikke flytte objektet",
-    "langBtnMkdir" => "Ny mappe",
-    "langErrorMkDir" => "Kunne ikke lage ny mappe",
-    "langErrorChDir" => "Kunne ikke endre rettigheter",
-    "langErrorReadDir" => "Kunne ikke lese mappen",
-    "langInfoRoot" => "Rot"
+	"langFileName" => "Navn",
+	"langFileSize" => "Størrelse",
+	"langFileLastmod" => "Endret",
+	"langInfoSpaceUsed" => "Brukt plass",
+	"langInfoSpaceFree" => "Resterende plass",
+	"langInputPassword" => "Passord",
+	"langBtnUpload" => "Last opp",
+	"langErrorUpload" => "Opplasting gikk galt",
+	"langErrorMove" => "Kunne ikke flytte objektet",
+	"langErrorSignin" => "Feil passord",
+	"langBtnMkdir" => "Ny mappe",
+	"langErrorMkDir" => "Kunne ikke lage ny mappe",
+	"langErrorChDir" => "Kunne ikke endre rettigheter",
+	"langErrorReadDir" => "Kunne ikke lese mappen"
 );
 
-//Polish
+// Polish
 $LANG["pl"] = array(
-    "langFileName" => "Nazwa Pliku",
-    "langFileSize" => "Rozmiar",
-    "langFileLastmod" => "Data Zmiany",
-    "langInfoSpaceUsed" => "Zajęta przestrzeń",
-    "langInfoSpaceFree" => "Wolnego obszaru",
-    "langInputPassword" => "Hasło",
-    "langBtnUpload" => "Prześlij",
-    "langErrorUpload" => "Przesłanie pliku nie powiodło się",
-    "langErrorMove" => "Przenoszenie pliku nie powiodło się!",
-    "langBtnMkdir" => "Nowy folder",
-    "langErrorMkDir" => "Błąd podczas tworzenia nowego folderu",
-    "langErrorChDir" => "Błąd podczas zmiany uprawnień folderu",
-    "langErrorReadDir" => "Odczytanie folderu nie powiodło się",
-    "langInfoRoot" => "Root",
-    "langErrorWriteLog" => "Brak uprawnień aby utowrzyć dziennik działań.",
-    "langErrorUploadDenied" => "Konfiguracja zabrania przesłania pliku do tego folderu.",
-    "langErrorUploadPermission" => "Nie można zapisac pliku do tego folderu.",
-    "langInfoLoadTime" => "Załadowano w %.2f ms",
-    "langErrorSignin" => "Nie poprawna nazwa użytkownika lub hasło",
-    "langInputUsername" => "Użytkownik",
-    "langBtnSignin" => "Zaloguj się",
-    "langErrorUploadType" => "Ten rodzaj pliku jest zabrioniony.",
-    "langFileDelete" => "Kasuj",
-    "langBtnSignout" => "Wyloguj"
+	"langFileName" => "Nazwa Pliku",
+	"langFileSize" => "Rozmiar",
+	"langFileLastmod" => "Data Zmiany",
+	"langInfoSpaceUsed" => "Total used space",
+	"langInfoSpaceFree" => "Wolnego obszaru",
+	"langInputPassword" => "Haslo",
+	"langBtnUpload" => "Przeslij",
+	"langErrorUpload" => "Przeslanie pliku nie powiodlo sie",
+	"langErrorMove" => "Przenosienie pliku nie powidlo sie!",
+	"langBtnMkdir" => "Nowy folder",
+	"langErrorMkDir" => "Blad podczas tworzenia nowego foldera",
+	"langErrorChDir" => "Blad podczas zmiany uprawnienia foldera",
+	"langErrorReadDir" => "Odczytanie foldera nie powiodlo sie",
+	"langInfoRoot" => "Root",
+	"langErrorWriteLog" => "Brak uprawnien aby utowrzyc dziennik dzialan.",
+	"langErrorUploadDenied" => "Konfiguracja zabrania przeslanie pliku do tego foldera.",
+	"langErrorUploadPermission" => "Nie mozna zapisac pliku do tego foldera.",
+	"langInfoLoadTime" => "Zaladowano w %.2f ms",
+	"langErrorSignin" => "Nie poprawna nazwa uzytkownika lub hasla",
+	"langInputUsername" => "Uzytkownik",
+	"langBtnSignin" => "Zaloguj sie",
+	"langErrorUploadType" => "Ten rodazaj pliku jest zabrioniony."
 );
 
 // Portuguese (Brazil)
 $LANG["pt_BR"] = array(
-    "langFileName" => "Nome do arquivo",
-    "langFileSize" => "Tamanho",
-    "langFileLastmod" => "Modificado em",
-    "langInfoSpaceUsed" => "Total de espaço utilizado",
-    "langInfoSpaceFree" => "Espaço livre",
-    "langInputPassword" => "Senha",
-    "langBtnUpload" => "Enviar",
-    "langErrorUpload" => "Falha ao enviar o arquivo!",
-    "langErrorMove" => "Falha ao mover o arquivo para o diretório correto!",
-    "langBtnMkdir" => "Nova pasta",
-    "langErrorMkDir" => "Falha ao criar diretório",
-    "langErrorChDir" => "Falha ao mudar os privilégios do diretório",
-    "langErrorReadDir" => "Não foi possível ler o diretório",
-    "langInfoRoot" => "Raíz",
-    "langErrorWriteLog" => "O script não tem permissão para escrever o arquivo de log.",
-    "langErrorUploadDenied" => "A configuração do script não permite envios neste diretório.",
-    "langErrorUploadPermission" => "Não há permissão para escrita neste diretório.",
-    "langInfoLoadTime" => "Página carregada em %.2f ms",
-    "langErrorSignin" => "Nome de usuário ou senha errados",
-    "langInputUsername" => "Nome de Usuário",
-    "langBtnSignin" => "Log in",
-    "langErrorUploadType" => "Não é permitido envio de arquivos deste tipo.",
-    "langFileDelete" => "Deletar",
-    "langBtnSignout" => "Log out"
-);
-
-// Portuguese (Portugal)
-$LANG["pt_PT"] = array(
-    "langFileName" => "Nome do ficheiro",
-    "langFileSize" => "Tamanho",
-    "langFileLastmod" => "Modificado em",
-    "langInfoSpaceUsed" => "Total de espaço utilizado",
-    "langInfoSpaceFree" => "Espaço livre",
-    "langInputPassword" => "Palavra-passe",
-    "langBtnUpload" => "Enviar",
-    "langErrorUpload" => "Falha ao enviar o ficheiro!",
-    "langErrorMove" => "Falha ao mover o ficheiro para a pasta correcta!",
-    "langBtnMkdir" => "Nova pasta",
-    "langErrorMkDir" => "Falha ao criar pasta",
-    "langErrorChDir" => "Falha ao mudar os privilégios da pasta",
-    "langErrorReadDir" => "Não foi possível ler a pasta",
-    "langInfoRoot" => "Raíz",
-    "langErrorWriteLog" => "O script não tem permissão para escrever o ficheiro de log.",
-    "langErrorUploadDenied" => "A configuração do script não permite envios para esta pasta.",
-    "langErrorUploadPermission" => "Não há permissão para escrita nesta pasta.",
-    "langInfoLoadTime" => "Página carregada em %.2f ms",
-    "langErrorSignin" => "Nome de utilizador ou palavra-passe incorrectos",
-    "langInputUsername" => "Nome de utilizador",
-    "langBtnSignin" => "Entrar",
-    "langErrorUploadType" => "Não é permitido o envio de ficheiros deste tipo.",
-    "langFileDelete" => "Apagar",
-    "langBtnSignout" => "Sair"
+	"langFileName" => "Nome do arquivo",
+	"langFileSize" => "Tamanho",
+	"langFileLastmod" => "Modificado em",
+	"langInfoSpaceUsed" => "Total de espaço utilizado",
+	"langInfoSpaceFree" => "Espaço livre",
+	"langInputPassword" => "Senha",
+	"langBtnUpload" => "Enviar",
+	"langErrorUpload" => "Falha ao enviar o arquivo!",
+	"langErrorMove" => "Falha ao mover o arquivo para o diretório correto!",
+	"langBtnMkdir" => "Nova pasta",
+	"langErrorMkDir" => "Falha ao criar diretório",
+	"langErrorChDir" => "Falha ao mudar os privilégios do diretório",
+	"langErrorReadDir" => "Não foi possível ler o diretório",
+	"langInfoRoot" => "Raíz",
+	"langErrorWriteLog" => "O script não tem permissão para escrever o arquivo de log.",
+	"langErrorUploadDenied" => "A configuração do script não permite envios neste diretório.",
+	"langErrorUploadPermission" => "Não há permissão para escrita neste diretório.",
+	"langInfoLoadTime" => "Página carregada em %.2f ms",
+	"langErrorSignin" => "Nome de usuário ou senha errados",
+	"langInputUsername" => "Nome de Usuário",
+	"langBtnSignin" => "Log in",
+	"langErrorUploadType" => "Não é permitido envio de arquivos deste tipo."
 );
 
 // Romanian
 $LANG["ro"] = array(
-    "langFileName" => "Nume fisier",
-    "langFileSize" => "Marime",
-    "langFileLastmod" => "Ultima modificare",
-    "langInfoSpaceUsed" => "Spatiu total utilizat",
-    "langInfoSpaceFree" => "Spatiu disponibil",
-    "langInputPassword" => "Parola",
-    "langBtnUpload" => "Incarcare fisier",
-    "langErrorUpload" => "Incarcarea fisierului a esuat!",
-    "langErrorMove" => "Mutarea fisierului in alt director a esuat!",
-    "langBtnMkdir" => "Director nou",
-    "langErrorMkDir" => "Eroare la crearea directorului",
-    "langErrorChDir" => "Eroare la modificarea drepturilor pe director",
-    "langErrorReadDir" => "Nu s-a putut citi directorul",
-    "langInfoRoot" => "Root"
+	"langFileName" => "Nume fisier",
+	"langFileSize" => "Marime",
+	"langFileLastmod" => "Ultima modificare",
+	"langInfoSpaceUsed" => "Spatiu total utilizat",
+	"langInfoSpaceFree" => "Spatiu disponibil",
+	"langInputPassword" => "Parola",
+	"langBtnUpload" => "Incarcare fisier",
+	"langErrorUpload" => "Incarcarea fisierului a esuat!",
+	"langErrorMove" => "Mutarea fisierului in alt director a esuat!",
+	"langErrorSignin" => "Parol gresita!",
+	"langBtnMkdir" => "Director nou",
+	"langErrorMkDir" => "Eroare la crearea directorului",
+	"langErrorChDir" => "Eroare la modificarea drepturilor pe director",
+	"langErrorReadDir" => "Nu s-a putut citi directorul"
 );
 
 // Russian
@@ -792,63 +605,76 @@ $LANG["ru"] = array(
     "langErrorSignin" => "Неверное имя пользователя или пароль",
     "langInputUsername" => "Имя пользователя",
     "langBtnSignin" => "Войти",
-    "langErrorUploadType" => "Этот тип файла запрещено загружать",
-    "langFileDelete" => "удалить",
-    "langBtnSignout" => "выйти"
+    "langErrorUploadType" => "Этот тип файла запрещено загружать"
 );
 
 // Slovensky
 $LANG["sk"] = array(
-    "langFileName" => "Meno súboru",
-    "langFileSize" => "Veľkosť",
-    "langFileLastmod" => "Posledná zmena",
-    "langInfoSpaceUsed" => "Použité miesto celkom",
-    "langInfoSpaceFree" => "Voľné miesto",
-    "langInputPassword" => "Heslo",
-    "langBtnUpload" => "Nahranie súborov",
-    "langErrorUpload" => "Chyba nahrávania súboru!",
-    "langErrorMove" => "Nepodarilo sa presunúť súbor do vybraného adresára!",
-    "langBtnMkdir" => "Nový priečinok",
-    "langErrorMkDir" => "Nepodarilo sa vytvoriť adresár!",
-    "langErrorChDir" => "Nepodarilo sa zmeniť práva adresára!",
-    "langErrorReadDir" => "Nemôžem čítať adresár",
-    "langInfoRoot" => "Domov"
+	"langFileName" => "Meno súboru",
+	"langFileSize" => "Ve?kos?",
+	"langFileLastmod" => "Posledná zmena",
+	"langInfoSpaceUsed" => "Použité miesto celkom",
+	"langInfoSpaceFree" => "Vo?né miesto",
+	"langInputPassword" => "Heslo",
+	"langBtnUpload" => "Nahranie súborov",
+	"langErrorUpload" => "Chyba nahrávania súboru!",
+	"langErrorMove" => "Nepodarilo sa presunú? súbor do vybraného adresára!",
+	"langErrorSignin" => "Neplatné heslo!",
+	"langBtnMkdir" => "Nový prie?inok",
+	"langErrorMkDir" => "Nepodarilo sa vytvori? adresár!",
+	"langErrorChDir" => "Nepodarilo sa zmeni? práva adresára!",
+	"langErrorReadDir" => "Nemôžem ?íta? adresár",
+	"langInfoRoot" => "Domov"
+);
+
+// Spanish
+$LANG["es"] = array(
+	"langFileName" => "Nombre de archivo",
+	"langFileSize" => "Medida",
+	"langFileLastmod" => "Ultima modificaciÃ³n",
+	"langInfoSpaceUsed" => "Total espacio usado",
+	"langInfoSpaceFree" => "Espacio libre",
+	"langInputPassword" => "ContraseÃ±a",
+	"langBtnUpload" => "Subir el archivo",
+	"langErrorUpload" => "Error al subir el archivo!",
+	"langErrorMove" => "Error al mover el archivo al directorio seleccionado!",
+	"langErrorSignin" => "ContraseÃ±a incorrecta"
 );
 
 // Swedish
 $LANG["sv"] = array(
-    "langFileName" => "Filnamn",
-    "langFileSize" => "Storlek",
-    "langFileLastmod" => "Senast andrad",
-    "langInfoSpaceUsed" => "Totalt upptaget utrymme",
-    "langInfoSpaceFree" => "Ledigt utrymme",
-    "langInputPassword" => "Losenord",
-    "langBtnUpload" => "Ladda upp",
-    "langErrorUpload" => "Fel vid uppladdning av fil!",
-    "langErrorMove" => "Fel vid flytt av fil till mapp!",
-    "langBtnMkdir" => "Ny mapp",
-    "langErrorMkDir" => "Fel vid skapande av mapp",
-    "langErrorChDir" => "Fel vid andring av mappens egenskaper",
-    "langErrorReadDir" => "Kan inte lasa den filen",
-    "langInfoRoot" => "Hem"
+	"langFileName" => "Filnamn",
+	"langFileSize" => "Storlek",
+	"langFileLastmod" => "Senast andrad",
+	"langInfoSpaceUsed" => "Totalt upptaget utrymme",
+	"langInfoSpaceFree" => "Ledigt utrymme",
+	"langInputPassword" => "Losenord",
+	"langBtnUpload" => "Ladda upp",
+	"langErrorUpload" => "Fel vid uppladdning av fil!",
+	"langErrorMove" => "Fel vid flytt av fil till mapp!",
+	"langErrorSignin" => "Fel losenord",
+	"langBtnMkdir" => "Ny mapp",
+	"langErrorMkDir" => "Fel vid skapande av mapp",
+	"langErrorChDir" => "Fel vid andring av mappens egenskaper",
+	"langErrorReadDir" => "Kan inte lasa den filen",
+	"langInfoRoot" => "Hem"
 );
 
 // Turkish
 $LANG["tr"] = array(
-    "langFileName" => "Dosya ismi",
-    "langFileSize" => "Boyut",
-    "langFileLastmod" => "gecmis",
-    "langInfoSpaceUsed" => "Toplam dosya boyutu",
-    "langInfoSpaceFree" => "Bos alan",
-    "langInputPassword" => "Sifre",
-    "langBtnUpload" => "Yükleyen",
-    "langErrorUpload" => "Hatali dosya yüklemesi!",
-    "langErrorMove" => "Hatali dosya tasimasi!",
-    "langBtnMkdir" => "Yeni dosya",
-    "langErrorMkDir" => "Dosya olusturalamadi",
-    "langErrorChDir" => "Dosya ayari deqistirelemedi",
-    "langErrorReadDir" => "Unable to read directory",
-    "langInfoRoot" => "Root"
+	"langFileName" => "Dosya ismi",
+	"langFileSize" => "Boyut",
+	"langFileLastmod" => "gecmis",
+	"langInfoSpaceUsed" => "Toplam dosya boyutu",
+	"langInfoSpaceFree" => "Bos alan",
+	"langInputPassword" => "Sifre",
+	"langBtnUpload" => "Yükleyen",
+	"langErrorUpload" => "Hatali dosya yüklemesi!",
+	"langErrorMove" => "Hatali dosya tasimasi!",
+	"langErrorSignin" => "Yeniden sifre",
+	"langBtnMkdir" => "Yeni dosya",
+	"langErrorMkDir" => "Dosya olusturalamadi",
+	"langErrorChDir" => "Dosya ayari deqistirelemedi"
 );
 
 /***************************************************************************/
@@ -858,6 +684,7 @@ $LANG["tr"] = array(
 /*   Or here: http://www.greywyvern.com/code/php/binary2base64             */
 /*   Or just use PHP base64_encode() function                              */
 /***************************************************************************/
+
 
 $ICON = array();
 
@@ -1044,6 +871,7 @@ $ICON["f4v"] = $ICON["video"];
 $ICON["f4p"] = $ICON["video"];
 $ICON["ogv"] = $ICON["video"];
 
+
 /***************************************************************************/
 /*   HERE COMES THE CODE.                                                  */
 /*   DON'T CHANGE UNLESS YOU KNOW WHAT YOU ARE DOING ;)                    */
@@ -1185,20 +1013,11 @@ class GateKeeper
 				$_SESSION['password'] = $_POST['inputPassword'];
 
 				$addr = $_SERVER['PHP_SELF'];
-                                $param = '';
-
 				if(isset($_GET['m']))
-					$param .= (strlen($param) == 0 ? '?m' : '&m');
-
-				if(isset($_GET['s']))
-					$param .= (strlen($param) == 0 ? '?s' : '&s');
-
-				if(isset($_GET['dir']) && strlen($_GET['dir']) > 0)
-				{
-					$param .= (strlen($param) == 0 ? '?dir=' : '&dir=');
-					$param .= urlencode($_GET['dir']);
-				}
-				header( "Location: ".$addr.$param);
+					$addr .= "?m";
+				else if(isset($_GET['s']))
+					$addr .= "?s";
+				header( "Location: ".$addr);
 			}
 			else
 				$simplex->setErrorString("langErrorSignin");
@@ -1230,7 +1049,7 @@ class GateKeeper
 
 	public static function isUserLoggedIn()
 	{
-		if(isset($_SESSION['username'], $_SESSION['password']))
+		if(isset($_SESSION['username']) && isset($_SESSION['password']))
 		{
 			if(GateKeeper::isUser($_SESSION['username'], $_SESSION['password']))
 				return true;
@@ -1317,14 +1136,14 @@ class FileManager
 				// The target directory is not writable
 				$simplex->setErrorString("langErrorUploadPermission");
 			}
-			else if(!mkdir($location->getDir(true, false, false, 0).$dirname, Simplex::getConfig("confModeNewDir")))
+			else if(!mkdir($location->getDir(true, false, false, 0).$dirname, 0777))
 			{
 				// Error creating a new directory
 				$simplex->setErrorString("langErrorMkDir");
 			}
-			else if(!chmod($location->getDir(true, false, false, 0).$dirname, Simplex::getConfig("confModeNewFile")))
+			else if(!chmod($location->getDir(true, false, false, 0).$dirname, 0777))
 			{
-				// Error applying chmod
+				// Error applying chmod 777
 				$simplex->setErrorString("langErrorChDir");
 			}
 			else
@@ -1379,7 +1198,7 @@ class FileManager
 		}
 		else
 		{
-			chmod($uploadFile, Simplex::getConfig("confModeNewFile"));
+			chmod($uploadFile, 0755);
 			Logger::logCreation($location->getDir(true, false, false, 0).$name, false);
 			Logger::emailNotification($location->getDir(true, false, false, 0).$name, true);
 		}
@@ -1452,7 +1271,6 @@ class Dir
 {
 	var $name;
 	var $location;
-        var $modTime;
 
 	//
 	// Constructor
@@ -1461,18 +1279,12 @@ class Dir
 	{
 		$this->name = $name;
 		$this->location = $location;
-		$this->modTime = filemtime($this->location->getDir(true, false, false, 0).$this->getName());
 	}
 
 	function getName()
 	{
 		return $this->name;
 	}
-
-        function getModeTime()
-        {
-		return $this->modTime;
-        }
 
 	function getNameHtml()
 	{
@@ -1491,7 +1303,6 @@ class Dir
 	{
 		print("Dir name (htmlspecialchars): ".$this->getName()."\n");
 		print("Dir location: ".$this->location->getDir(true, false, false, 0)."\n");
-		print("Dir modTime: ".$this->modTime."\n");
 	}
 }
 
@@ -1781,7 +1592,7 @@ class Simplex
 
 
 		global $LANG;
-		if(isset($_GET['lang'], $LANG[$_GET['lang']]))
+		if(isset($_GET['lang']) && isset($LANG[$_GET['lang']]))
 			$this->lang = $_GET['lang'];
 		else
 			$this->lang = Simplex::getConfig("confLang");
@@ -1865,35 +1676,31 @@ class Simplex
 
 	function sort()
 	{
-		// Here we filter the comparison functions supported by our directory object
-		if(is_array($this->dirs) && in_array($this->sort_by, array('name', 'mod'))) {
-			usort($this->dirs, "Simplex::cmp_".$this->sort_by);
-			if($this->sort_as == "desc")
-				$this->dirs = array_reverse($this->dirs);
-		} else {
-			usort($this->dirs, "Simplex::cmp_name");
-		}
-
-		// Here we filter the comparison functions supported by our file object
-		if(is_array($this->files) && in_array($this->sort_by, array('name', 'size', 'mod'))) {
+		if(is_array($this->files)){
 			usort($this->files, "Simplex::cmp_".$this->sort_by);
 			if($this->sort_as == "desc")
 				$this->files = array_reverse($this->files);
-		} else {
-			usort($this->files, "Simplex::cmp_name");
+		}
+
+		if(is_array($this->dirs)){
+			usort($this->dirs, "Simplex::cmp_name");
+			if($this->sort_by == "name" && $this->sort_as == "desc")
+				$this->dirs = array_reverse($this->dirs);
 		}
 	}
 
 	function makeArrow($sort_by)
 	{
-		// Ability to reverse the 'sort as' selected for the current field
-		// And propagate the current selected 'sort as' to the other fields
-		$sort_as = ($this->sort_as == "asc") ? "desc" : "asc";
-		$sort_as = ($this->sort_by == $sort_by) ? $sort_as : $this->sort_as;
-
-		// Only show image for the currently selected 'sort as' field
-		$img = ($this->sort_as == "asc") ? "arrow_up" : "arrow_down";
-		$img = ($this->sort_by == $sort_by) ? "<img style=\"border:0;\" alt=\"".$sort_as."\" src=\"?img=".$img."\" />" : "&nbsp;";
+		if($this->sort_by == $sort_by && $this->sort_as == "asc")
+		{
+			$sort_as = "desc";
+			$img = "arrow_up";
+		}
+		else
+		{
+			$sort_as = "asc";
+			$img = "arrow_down";
+		}
 
 		if($sort_by == "name")
 			$text = $this->getString("langFileName");
@@ -1902,7 +1709,8 @@ class Simplex
 		else if($sort_by == "mod")
 			$text = $this->getString("langFileLastmod");
 
-		return "<a href=\"".$this->makeLink(false, false, $sort_by, $sort_as, null, $this->location->getDir(false, true, false, 0))."#simplex\">{$text}{$img}</a>";
+		return "<a href=\"".$this->makeLink(false, $sort_by, $sort_as, null, $this->location->getDir(false, true, false, 0))."#simplex\">
+			$text <img style=\"border:0;\" alt=\"".$sort_as."\" src=\"?img=".$img."\"></a>";
 	}
 
 	function makeLink($logout, $sort_by, $sort_as, $delete, $dir)
@@ -1971,7 +1779,7 @@ class Simplex
 	// Comparison functions for sorting.
 	//
 
-	public static function cmp_name($a, $b)
+	public static function cmp_name($b, $a)
 	{
 		return strcasecmp($a->name, $b->name);
 	}
@@ -1981,7 +1789,7 @@ class Simplex
 		return ($a->size - $b->size);
 	}
 
-	public static function cmp_mod($a, $b)
+	public static function cmp_mod($b, $a)
 	{
 		return ($a->modTime - $b->modTime);
 	}
@@ -2014,7 +1822,7 @@ class Simplex
 	public static function getConfig($name)
 	{
 		global $CONFIG;
-		if(isset($CONFIG, $CONFIG[$name]))
+		if(isset($CONFIG) && isset($CONFIG[$name]))
 			return $CONFIG[$name];
 		return null;
 	}
