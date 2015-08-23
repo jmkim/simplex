@@ -2,14 +2,22 @@
 /***************************************************************************
  *
  *   Simplex
+<<<<<<< HEAD
  *   6.4.1
+=======
+ *   6.3
+>>>>>>> 376313cb9718b27d9f972b6b34fb21fee8bad28e
  *
  *   Jongmin Kim
  *   kdzlvaids@gmail.com
  *
  *   https://github.com/kdzlvaids/Simplex
  *
+<<<<<<< HEAD
  *   Based on Encode Explorer 6.4.1 by Marek Rei
+=======
+ *   Based on Encode Explorer 6.3 by Marek Rei
+>>>>>>> 376313cb9718b27d9f972b6b34fb21fee8bad28e
  *   http://encode-explorer.siineiolekala.net
  *
  *   Comments are in English.
