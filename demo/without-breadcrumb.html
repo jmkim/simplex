@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Simplex Demo</title>
+
+<!-- Bootstrap -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+/* Fonts from Google Fonts */
+@import url(//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic&subset=latin,latin-ext);
+@import url(//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic&subset=latin,latin-ext);
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+
+/* Some elements from Apaxy */
+* {
+	margin:0;
+	padding:0;
+}
+html {
+	min-height: 100%;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border-top: 10px solid #eee;
+	border-bottom: 10px solid #eee;
+	color: #61666c;
+	line-height: 10px;
+}
+.font-monospace {
+	font-family: 'Ubuntu Mono', 'Nanum Gothic Coding', monospace;
+	font-weight: 400;
+}
+.font-sans-serif {
+	font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
+	font-weight: 300;
+}
+strong,
+.strong {
+	font-weight: 500;
+}
+.no-strong {
+	font-weight: 300;
+}
+.transparent {
+	border: 0px;
+}
+a:link {
+	text-decoration: none;
+	color: #61666c;
+}
+a:visited {
+	color: #61666c;
+}
+a:hover {
+	color: #2d2d2d;
+}
+a:active {
+	color: #2d2d2d;
+}
+a:focus {
+	color: #2d2d2d;
+}
+table {
+	table-layout:fixed;
+}
+tr {
+	height: 39px;
+	text-align: center;
+}
+th {
+	white-space: nowrap;
+}
+td {
+	word-wrap: break-word;
+}
+td a:link {
+	display: block;
+}
+.btn {
+	font-weight: 300;
+}
+.btn-file {
+	position: relative;
+	overflow: hidden;
+}
+.btn-file input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	background: red;
+	cursor: inherit;
+	display: block;
+}
+input[readonly] {
+	background-color: white !important;
+	cursor: text !important;
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+	border-color: rgba(97, 102, 108, 0.8);
+	box-shadow: 0 1px 1px rgba(97, 102, 108, 0.075) inset, 0 0 8px rgba(97, 102, 108, 0.6);
+	outline: 0 none;
+}
+</style>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body class="font-sans-serif">
+<header class="header-wrapper">
+<div class="container">
+<div class="row">
+<h3 class="no-strong text-center">
+<a href="index.html"><span>Simplex Demo</span></a>
+<span><small class="no-strong">Simplex Second Design Sample</small></span>
+</h3>
+</div>
+</div>
+</header>
+
+<a name="simplex"></a>
+
+<hr>
+
+<section class="container">
+<table class="table table-hover">
+<thead class="small">
+<tr>
+<th style="width: 39px;"></th>
+<th class="no-strong text-left"><a href="#simplex">
+			File name <img style="border:0;" alt="asc" src="icons/arrow_down.gif"></a></th>
+<th class="no-strong text-center hidden-xs" style="width: 156px;"><a href="#simplex">
+			Last changed <img style="border:0;" alt="asc" src="icons/arrow_down.gif"></a></th>
+<th class="no-strong text-center" style="width: 78px;"><a href="#simplex">
+			Size <img style="border:0;" alt="asc" src="icons/arrow_down.gif"></a></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><img alt="dir" src="icons/folder-home.png"></td>
+<td class="text-left"><a href="index.html#simplex">..</a></td>
+<td class="hidden-xs"></td>
+<td></td>
+</tr>
+
+<tr>
+<td><img alt="psd" src="icons/psd.png"></td>
+<td class="text-left"><a href="#simplex">Adobe_Photoshop.psd</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="bin" src="icons/bin.png"></td>
+<td class="text-left"><a href="#simplex">binary_file.bin</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="cpp" src="icons/cpp.png"></td>
+<td class="text-left"><a href="#simplex">C-plus-plus.cpp</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="png" src="icons/png.png"></td>
+<td class="text-left"><a href="https://500px.com/photo/91331591">Celestial_blanket.png</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="java" src="icons/java.png"></td>
+<td class="text-left"><a href="#simplex">Java_source_file.java</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="js" src="icons/js.png"></td>
+<td class="text-left"><a href="#simplex">Javascript_file.js</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="txt" src="icons/text.png"></td>
+<td class="text-left"><a href="#simplex">plain_text_file.txt</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="txt" src="icons/text.png"></td>
+<td class="text-left"><a href="#simplex">plain_text_file_2.txt</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="sh" src="icons/script.png"></td>
+<td class="text-left"><a href="#simplex">shell_script.sh</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="sh" src="icons/script.png"></td>
+<td class="text-left"><a href="#simplex">shell_script_2.sh</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="sh" src="icons/script.png"></td>
+<td class="text-left"><a href="#simplex">shell_script_3.sh</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="png" src="icons/png.png"></td>
+<td class="text-left"><a href="https://500px.com/photo/90042253">Stargazer.png</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="tiff" src="icons/tiff.png"></td>
+<td class="text-left"><a href="https://500px.com/photo/91460153">The_Roses_of_Pemaquid_Point.tiff</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="jpg" src="icons/jpg.png"></td>
+<td class="text-left"><a href="https://500px.com/photo/91441343">Unexpected_Lightshow.jpg</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="bat" src="icons/script.png"></td>
+<td class="text-left"><a href="#simplex">Windows_script.bat</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+
+<tr>
+<td><img alt="htm" src="icons/html.png"></td>
+<td class="text-left"><a href="http://hangeul.naver.com/">한글한글아름답게.htm</a></td>
+<td class="hidden-xs">02.12.14 14:43</td>
+<td>12.02 KB</td>
+</tr>
+</tbody>
+</table>
+</section>
+<footer class="footer-wrapper">
+<div class="container">
+<div class="row text-muted">
+</div>
+</div><!-- file-manager-tools-container -->
+
+<div class="footer-bottom-wrapper">
+<hr>
+<div class="container visible-xs">
+<div class="row">
+<div class="col-xs-12 text-center">
+<p class="text-muted">
+Page loaded in 12.02 ms</p>
+</div>
+</div><!-- row -->
+
+<div class="row">
+<div class="col-xs-12 text-center">
+<h4 class="no-strong">Simplex Demo with <a href="https://github.com/kdzlvaids/Simplex">Simplex</a></h4>
+</div>
+</div><!-- row -->
+</div><!-- container -->
+
+<div class="container hidden-xs">
+<div class="row">
+<div class="col-sm-12 text-left">
+<p class="text-muted">
+Page loaded in 12.02 ms</p>
+</div>
+</div><!-- row -->
+
+<div class="row">
+<div class="col-sm-8 text-left">
+<h4 class="no-strong">Simplex Demo with <a href="https://github.com/kdzlvaids/Simplex">Simplex</a></h4>
+</div>
+
+<div class="col-sm-1 col-sm-offset-3 pull-right">
+<a href="#simplex"><button class="btn btn-default" type="button" style="margin:3px 0 2px 0;">Top</button></a>
+</div>
+</div><!-- row -->
+</div><!-- container -->
+</div><!-- footer-bottom-wrapper -->
+</footer>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<!-- From http://www.abeautifulsite.net/whipping-file-inputs-into-shape-with-bootstrap-3 -->
+<script>
+$(document).on('change', '.btn-file :file', function() {
+  var input = $(this),
+      numFiles = input.get(0).files ? input.get(0).files.length : 1,
+      label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+  input.trigger('fileselect', [numFiles, label]);
+});
+	
+$(document).ready( function() {
+    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+
+        var input = $(this).parents('.input-group').find(':text'),
+            log = numFiles > 1 ? numFiles + ' files selected' : label;
+
+        if( input.length ) {
+            input.val(log);
+        } else {
+            if( log ) alert(log);
+        }
+    });
+});
+</script>
+</body>
+</html>
