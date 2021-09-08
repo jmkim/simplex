@@ -2,10 +2,10 @@
 /***************************************************************************
  *
  *   Simplex
- *   1.1
+ *   1.1-UNRELEASED
  *
  *   Jongmin Kim
- *   kdzlvaids@gmail.com
+ *   jmkim@pukyong.ac.kr
  *
  *   https://github.com/kdzlvaids/Simplex
  *
